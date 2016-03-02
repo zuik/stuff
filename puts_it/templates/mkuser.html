@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puts it here!</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css' )}}"/>
+</head>
+<body>
+    <div class="cont">
+<p>Here is the big box, okay, it's small, for now:</p>
+<form action="/mkuser" method="POST">
+<input type="text" name="user" placeholder="Username"></input>
+<input type="text" name="password" placeholder="Password"></input>
+<input type="submit" value="Submit"></input>
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puts it here!</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css' )}}"/>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li> <a href="/"> Home</a></li>
+      <li> <a href="/mkuser">Create new User</a> </li>
+    </ul>
+  </nav>
+
+  <div class="cn">
+    <div class="in-put">
+      <p>Here is the big box, okay, it's small, for now:</p><br>
+      <form action="/" method="POST">
+      <input type="text" name="content"></input>
+      <input type="submit" value="Submit"></input></form>
+    </div>
+    <div class="cn-txt">
+        {% for m in msg %}
+      <div class="txt-box">
+        <h4>Message by {{m[2].decode() }}:</h4>
+        <p> {{ m[0].decode() }} </p>
+        <div class="time">
+          <h5> Posted:   {{ m[1].decode() }}</h5>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
