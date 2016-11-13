@@ -3,6 +3,9 @@ import {List, ListItem} from 'material-ui/List';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 import moment from 'moment';
 import NewMessage from './NewMessage';
+import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
+
 
 var serverUrl = "https://nearby-zkn.c9users.io/msg"
 
@@ -45,14 +48,16 @@ class Messages extends React.Component {
                 var lat;
                 var lng;
                 var username;
+                var userPic;
                 if (val.location){
                     lat = val.location.lat;
                     lng = val.location.lng;
                 }
                 if (val.user){
-                    username = val.user.username
+                    username = val.user.username;
+                    userPic = val.user.profilePic;
                 }
-                return <Message lat={lat} lng={lng} time={val.time} message={val.content} username={username}/>;
+                return <Message lat={lat} lng={lng} time={val.time} message={val.content} username={username} userPic={userPic}/>;
             })}
             
         </div>;
@@ -66,7 +71,10 @@ class Message extends React.Component {
         time = moment.unix(time);
         time = time.format("MMM d, YYYY H:m:s");
 
-        return <ListItem rightIcon={<a href={"https://www.google.com/maps?q=" + this.props.lat + ',' + this.props.lng }><MapsPlace /></a>} primaryText={this.props.message} secondaryText={<div> by <b>{this.props.username}</b> on <i>{time}</i></div>} />;
+        return <ListItem leftAvatar={
+        <Avatar
+          src={this.props.userPic}
+          size={50} />} rightIcon={<a href={"https://www.google.com/maps?q=" + this.props.lat + ',' + this.props.lng }><MapsPlace /></a>} primaryText={<Chip>{this.props.message}</Chip>} secondaryText={<div> by <b>{this.props.username}</b> on <i>{time}</i></div>} />;
     }
 }
 

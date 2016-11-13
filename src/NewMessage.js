@@ -45,6 +45,7 @@ class NewMessage extends React.Component {
             var user = {
                 "username": this.props.user.displayName,
                 "uid": this.props.user.uid,
+                "profilePic": this.props.user.photoURL,
             };
         }
         console.log(this.props.user);
