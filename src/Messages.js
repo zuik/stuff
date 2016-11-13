@@ -68,8 +68,8 @@ class Messages extends React.Component {
 class Message extends React.Component {
     render() {
         var time = this.props.time;
-        time = moment.unix(time);
-        time = time.format("MMM d, YYYY H:m:s");
+        time = moment(Math.round(time)*1000);
+        time = time.format('MMMM Do YYYY, h:mm:ss a'); 
 
         return <ListItem leftAvatar={
         <Avatar
