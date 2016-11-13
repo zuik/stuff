@@ -20,7 +20,7 @@ class Main extends React.Component{
 
     render() {
         return (<div>
-            <AppBar title="A simple chat app that took way to long to do" iconElementRight={<Login updateHandler={this.updateUserInfo}/>}/>
+            <AppBar title="V1C1N1TY" iconElementRight={<Login updateHandler={this.updateUserInfo}/>}/>
             <Messages user={this.state.user}/>
         </div>);
     }

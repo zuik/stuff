@@ -24,7 +24,7 @@ class Messages extends React.Component {
 
     componentDidMount() {
         this.getMessages();
-       // setInterval(this.getMessages, 5000);
+        setInterval(this.getMessages, 5000);
     }
 
     getMessages() {
