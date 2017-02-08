@@ -13,10 +13,9 @@ def get_video_info():
         return json.jsonify({"error": "Please use POST"})
     if request.method == 'POST' and request.data or request.form:
         #payload = json.loads(request.data.decode("UTF-8"))
-        print(request.data)
-        print(request.form)
-        if payload["url"]:
-            info = _get_info(payload["url"])
+        url = json.loads(request.data.decode("utf-8"))
+        if url:
+            info = _get_info(url['url'])
             return json.jsonify(info)
         else: 
             return json.jsonify({"error": "Can't get information for this url'"})
