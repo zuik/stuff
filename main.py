@@ -1,4 +1,5 @@
 from flask import Flask, request, json
+from yutility import all_playlist_data, yt_search
 import youtube_dl
 import time
 
@@ -7,7 +8,7 @@ ydl_opts = {
     "noplaylist": True
 }
 
-@ytpl.route("/videoinfo", methods=['GET', 'POST'])
+@ytpl.route("/api/videoinfo", methods=['GET', 'POST'])
 def get_video_info():
     if request.method == 'GET':
         return json.jsonify({"error": "Please use POST"})
@@ -29,6 +30,24 @@ def _get_info(url):
         x['system_time'] = time.time()
  #       x['audio_list'] = [i for i in x['formats'] if i['format_note']=="DASH audio"]
         return x
+
+@ytpl.route("/api/playlist")
+def playlist():
+    video_id = request.args.get('video_id', '')
+    if video_id:
+        data = all_playlist_data(video_id)
+        return jsonify(data)
+    else:
+        return jsonify({"error": "There is no video_id"})
+
+@ytpl.route("/api/search")
+def search():
+    query = request.args.get('q','')
+    if query:
+        data = yt_search(query=query)
+        return jsonify(data)
+    else:
+        return jsonify({"error": "There is no query"})
 
 
 if __name__ == "__main__":
