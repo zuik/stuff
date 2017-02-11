@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SearchField from './Search.js';
 
-
-class SearchField extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render(){
+class MainPage extends Component {
+    render() {
         return (
-            <form>
-                <TextField placeholder="Search for video" />
-            </form>
-        );
-    }    
+        <MuiThemeProvider>
+            <SearchField />
+        </MuiThemeProvider>);
+    }
 }
+
+export default MainPage;
