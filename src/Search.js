@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 
-
 class SearchField extends Component {
     constructor(props){
         super(props);
@@ -15,3 +14,5 @@ class SearchField extends Component {
         );
     }    
 }
+
+export default SearchField;
