@@ -19,7 +19,7 @@ def get_video_info():
             info = _get_info(url['url'])
             return json.jsonify(info)
         else: 
-            return json.jsonify({"error": "Can't get information for this url'"})
+           return json.jsonify({"error": "Can't get information for this url'"})
     else:
         return json.jsonify({"error": "Undefined error"})
 
@@ -34,20 +34,21 @@ def _get_info(url):
 @ytpl.route("/api/playlist")
 def playlist():
     video_id = request.args.get('video_id', '')
-    if video_id:
+    print(video_id)
+    if video_id != None:
         data = all_playlist_data(video_id)
-        return jsonify(data)
+        return json.jsonify(data)
     else:
-        return jsonify({"error": "There is no video_id"})
+        return json.jsonify({"error": "There is no video_id"})
 
 @ytpl.route("/api/search")
 def search():
     query = request.args.get('q','')
     if query:
         data = yt_search(query=query)
-        return jsonify(data)
+        return json.jsonify(data)
     else:
-        return jsonify({"error": "There is no query"})
+        return json.jsonify({"error": "There is no query"})
 
 
 if __name__ == "__main__":
