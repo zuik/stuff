@@ -7,7 +7,7 @@
 # Mar 2013 ys
 
 #Virualenv stuff
-ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=" %{$fg[white]%}using%{$reset_color%} %{$fg[green]%}"
+ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=" %{$fg[white]%}|py:%{$reset_color%} %{$fg[green]%}"
 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="%{$reset_color%}"
 
 function virtualenv_prompt_info() {
@@ -34,7 +34,7 @@ function box_name {
 local current_dir='${PWD/#$HOME/~}'
 
 # VCS
-YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
+YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}|%{$reset_color%} "
 YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
 YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}✖︎"
@@ -67,15 +67,15 @@ ys_hg_prompt_info() {
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$fg[cyan]%}%n \
-%{$fg[white]%}at \
-%{$fg[green]%}$(box_name) \
-%{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+%{$fg[white]%}| \
+%{$fg[green]%}$(box_name)\
+%{$fg[white]%}\
+%{$reset_color%}\
 ${v_env}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
-%{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
+%{$terminfo[bold]$fg[red]%}%{$terminfo[bold]$fg[yellow]%}${current_dir} → %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
