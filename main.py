@@ -12,10 +12,10 @@ ydl_opts = {
 def get_video_info():
     if request.method == 'GET':
         return json.jsonify({"error": "Please use POST"})
-    if request.method == 'POST' and request.data or request.form:
+    if request.method == 'POST':
+        data = request.get_json() if request.get_json() else request.form
         #payload = json.loads(request.data.decode("UTF-8"))
         url = json.loads(request.data.decode("utf-8"))
-        print(url)
         if url:
             info = _get_info(url['url'])
             return json.jsonify(info)
@@ -53,4 +53,4 @@ def search():
 
 
 if __name__ == "__main__":
-    ytpl.run(debug = True)
+    ytpl.run()
