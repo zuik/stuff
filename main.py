@@ -15,9 +15,9 @@ def get_video_info():
     if request.method == 'POST':
         data = request.get_json() if request.get_json() else request.form
         #payload = json.loads(request.data.decode("UTF-8"))
-        url = json.loads(request.data.decode("utf-8"))
+        url = data['url']
         if url:
-            info = _get_info(url['url'])
+            info = _get_info(url)
             return json.jsonify(info)
         else: 
            return json.jsonify({"error": "Can't get information for this url'"})
@@ -29,7 +29,7 @@ def _get_info(url):
         x = ydl.extract_info(url, download=False)
         x['original_url'] = url
         x['system_time'] = time.time()
- #       x['audio_list'] = [i for i in x['formats'] if i['format_note']=="DASH audio"]
+        x['audio_list'] = [i for i in x['formats'] if i['format_note']=="DASH audio"]
         return x
 
 @ytpl.route("/api/playlist")
