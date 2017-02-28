@@ -24,7 +24,7 @@ class Playlist extends Component {
         </div>);
     }
 }
-
+// Todo: Change PlaylistItem to card style
 class PlaylistItem extends Component {
     constructor(props){
         super(props);
@@ -63,6 +63,7 @@ class AudioPlayer extends Component {
                     }
             ]
         };
+        // Tracks need to be fetch from API and put in accordingly.
         this.changeSong = this.changeSong.bind(this);
     }
     changeSong (url) {
