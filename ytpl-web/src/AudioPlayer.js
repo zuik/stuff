@@ -11,19 +11,70 @@ class AudioTag extends Component {
 }
 
 class Playlist extends Component {
+    constructor(props){
+        super(props);
+        this.playlistItems = this.props.tracks.map(
+            (val, index) => <PlaylistItem changeSong={this.props.changeSong} key={index} name={val.name} url={val.url} />
+        );
+
+    }
     render() {
         return (<div>
-            This is the playlist to be implement
-        </div>)
+            <ul>{this.playlistItems}</ul>
+        </div>);
+    }
+}
+
+class PlaylistItem extends Component {
+    constructor(props){
+        super(props);
+        this.handlePlaylistItemClick = this.handlePlaylistItemClick.bind(this);
+    }
+
+    handlePlaylistItemClick (e) {
+        e.preventDefault();
+        console.log(e);
+        console.log(this.props);
+        this.props.changeSong(this.props.url);
+    }
+
+    render() {
+        return (
+        <li>
+            <a href="#" onClick={this.handlePlaylistItemClick}> 
+                    {this.props.name} | {this.props.url}
+            </a>
+        </li>);
     }
 }
 
 class AudioPlayer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            'src': '#',
+            'tracks': [
+                    {
+                        'name': 'Blah blah',
+                        'url': 'test.mp3'
+                    },
+                    {'name': 'Blah blah',
+                        'url': 'b'
+                    }
+            ]
+        };
+        this.changeSong = this.changeSong.bind(this);
+    }
+    changeSong (url) {
+        this.setState({
+            'src': url
+        });
+    }
     render() {
         return (<div>
-            <Playlist />
-            <AudioTag src={this.props.src}/>
-        </div>)
+            <Playlist changeSong={this.changeSong} tracks={this.state.tracks}/>
+            <AudioTag src={this.state.src}/>
+        </div>);
     }
 }
 
