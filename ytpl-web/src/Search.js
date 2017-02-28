@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class SearchField extends Component {
     render() {
@@ -13,7 +14,7 @@ class SearchField extends Component {
 
 class Search extends Component {
     render() {
-        return (<div><SearchField /></div>)
+        return (<div><MuiThemeProvider><SearchField/></MuiThemeProvider></div>)
     }
 }
 
