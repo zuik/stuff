@@ -15,6 +15,7 @@ def get_video_info():
     if request.method == 'POST' and request.data or request.form:
         #payload = json.loads(request.data.decode("UTF-8"))
         url = json.loads(request.data.decode("utf-8"))
+        print(url)
         if url:
             info = _get_info(url['url'])
             return json.jsonify(info)
@@ -45,7 +46,7 @@ def playlist():
 def search():
     query = request.args.get('q','')
     if query:
-        data = yt_search(query=query)
+        data = yt_search(query)
         return json.jsonify(data)
     else:
         return json.jsonify({"error": "There is no query"})
