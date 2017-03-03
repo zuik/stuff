@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\title{LX331: Assignment 4}
+\author{Duy Nguyen}
+\date{3 March 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+
+\section{Exploring semantic ambiguity with propositional logic}
+
+So in (3a) we have the ambiguous sentence: \textit{I didn’t go to Phonetics \textbf{or} Syntax 1 today}.
+
+In this sentence, let  $p =$ I went to Phonetics today and $q =$ I went to Syntax 1 today, then we can write our interpretations of the sentence in propositional logic as follow:
+
+(3b) $\sim (p \lor q)$
+
+(3c) $\sim (p \oplus q)$
+
+\begin{tabular}{cc|cc}
+    $p$ & $q$ &  $\sim (p \lor q)$ & $\sim (p \oplus q)$ \\ \hline
+    T & T & F & T \\
+    T & F & F & F \\
+    F & T & F & F \\
+    \textbf{F} & \textbf{F} & \textbf{T} & \textbf{T} \\
+\end{tabular}
+
+Note here that there is a row where both of our interpretation is true, thus we are again ambiguous about what meaning of or that actually expressed in the sentence.
+
+\section{The conversational implicatures of \textit{or}-sentences}
+
+With $p$ = You have small children, $q$ = You need special assistance, and $r$ = You may board the flight early; we have:
+
+(1) If you have small children, or you need special assistance, then you may board the flight early.
+
+$ p \lor q \rightarrow r$
+
+(7) If you have small children, and you need special assistance, then you may board the flight early.
+
+$ p \& q \rightarrow r$
+
+\begin{tabular}{ccc|cc|cc}
+    $p$     & $q$     & $r$   &  $p \lor q$ &  $(p \lor q) \rightarrow r$          & $p \& q$  & $(p \& q) \rightarrow r$               \\ \hline
+    T       & T       & T     & T           & \textbf{T}                                     & T         & \textbf{T}                    \\
+    T       & T       & F     & T           & F                                     & T         & F                    \\
+    T       & F       & T     & T           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    T       & F       & F     & T           & F                                     & F         & T                    \\
+    F       & T       & T     & T           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    F       & T       & F     & T           & F                                     & F         & T                    \\
+    F       & F       & T     & F           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    F       & F       & F     & F           & \textbf{T}                                     & F         & \textbf{T}                    \\
+\end{tabular}
+
+We could see from the truth table (places where (1) and (7) are both true is bolded) that (1) entails (7) in an asymmetrical way. Since entailment and implicatures are mutually exclusive, we can see that an utterance of (1) does not carry the same effect as it was demontrasted with (4) and (6).
+
+\end{document}
