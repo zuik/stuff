@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,amsthm,url,graphicx}
+\usepackage{fancyhdr}
+
+\def\shownotes{1}   % set 1 for version with author notes
+                    % set 0 for no notes
+
+
+
+%uncomment to get hyperlinks
+%\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Some macros (you can ignore everything until "end of macros")
+
+\topmargin 0pt \advance \topmargin by -\headheight \advance
+\topmargin by -\headsep
+
+\textheight 8.9in
+
+\oddsidemargin 0pt \evensidemargin \oddsidemargin \marginparwidth
+0.5in
+
+\textwidth 6.5in
+
+%%%%%%
+
+\providecommand{\vs}{vs. }
+\providecommand{\ie}{\emph{i.e.,} }
+\providecommand{\eg}{\emph{e.g.,} }
+\providecommand{\cf}{\emph{cf.,} }
+\providecommand{\etc}{\emph{etc.} }
+
+\newcommand{\getsr}{\gets_{\mbox{\tiny R}}}
+\newcommand{\bits}{\{0,1\}}
+\newcommand{\bit}{\{0,1\}}
+\newcommand{\Ex}{\mathbb{E}}
+\newcommand{\eqdef}{\stackrel{def}{=}}
+\newcommand{\To}{\rightarrow}
+\newcommand{\e}{\epsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Gen}{\mathsf{Gen}}
+\newcommand{\Enc}{\mathsf{Enc}}
+\newcommand{\Dec}{\mathsf{Dec}}
+\newcommand{\Sign}{\mathsf{Sign}}
+\newcommand{\Ver}{\mathsf{Ver}}
+
+\providecommand{\mypara}[1]{\smallskip\noindent\emph{#1} }
+\providecommand{\myparab}[1]{\smallskip\noindent\textbf{#1} }
+\providecommand{\myparasc}[1]{\smallskip\noindent\textsc{#1} }
+\providecommand{\para}{\smallskip\noindent}
+
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{ex}{Exercise}
+\newtheorem{definition}{Definition}
+
+%%%%%%%  Author Notes %%%%%%%
+%
+\ifnum\shownotes=1
+\newcommand{\authnote}[2]{{ $\ll$\textsf{\footnotesize #1 notes: #2}$\gg$}}
+\else
+\newcommand{\authnote}[2]{}
+\fi
+\newcommand{\Snote}[1]{{\authnote{Solution}{#1}}}
+\newcommand{\Inote}[1]{{\authnote{Solution}{#1}}}
+\newcommand{\Ichanged}[1]{{\authnote{Changed}{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\VAR}{\mathrm{VAR}}
+
+
+
+% end of macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% page counting, header/footer
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\lhead{\footnotesize \parbox{11cm}{CS558, Boston University, Spring 2014} }
+\rhead{Your Name Here:   }
+\renewcommand{\headheight}{24pt}
+
+\begin{document}
+
+\title{Homework 1: Threat Modelling\\ Due at 11:59PM on January 27, 2014 as a PDF via websubmit.}
+\author{Your name here}
+\maketitle
+
+\thispagestyle{fancy}
+
+\myparab{Collaborators: }  Alice, Bob, Eve.
+
+\myparab{Late days for this assignment: } 0
+
+\myparab{Total late days this semester: } 2
+ 
+ 
+\section*{Answer 1}
+
+Blah blah.
+
+\begin{enumerate}
+\item This is a list.
+\item This is another list element.
+\end{enumerate} 
+
+\noindent\hrulefill
+
+\myparab{Submission policy.} This assignment MUST be submitted as a PDF via websubmit.  It should be \textbf{typed} and \textbf{NOT handwritten} and MUST include the following information:
+\begin{enumerate}\itemsep1pt\parsep0pt
+\item List of collaborators
+\item List of references used (online material, course nodes, textbooks, wikipedia, etc.)
+\item Number of late days used on this assignment
+\item Total number of late days used thus far in the entire semester
+\end{enumerate}
+{If any of this information is missing, at least 20\% of the points for the assignment will automatically be deducted from your assignment.  See also discussion on plagiarism on the course syllabus.}
+
+\noindent\hrulefill
+
+\section*{References}
+
+You can enter the references by hand like this:
+\begin{enumerate}
+\item Sharon Goldberg, Michael Schapira, Pete Hummon, and Jennifer Rexford. How Secure are Secure Interdomain Routing Protocols? SIGCOMM'10, New Delhi, India. August 2010.
+
+\item Kyle Brogle, Sharon Goldberg, and Leonid Reyzin. Sequential Aggregate Signatures with Lazy Verification from Trapdoor Permutations. AISACRYPT 2012. Beijing, China. December 2012.
+    
+\item Wikipedia. Kerckhoff's Principle. Available at \url{http://en.wikipedia.org/wiki/Kerckhoffs's_principle}.
+\end{enumerate}
+
+
+\end{document} 

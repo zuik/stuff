@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+
+\title{CS131 B1: HW 1}
+\author{Duy Nguyen}
+\date{13 September 2016}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+In the truth table for $P \land Q$, when P is true and Q is true, the result is true. However, this case should be false if it is a truth table for $P \oplus Q$.
+
+\begin{table}[h]
+\centering
+\caption{Question 1b}
+\begin{tabular}{cc|cc}
+P & Q & $P \oplus Q$ & $(P \land \neg Q) \lor (Q \land \neg P)$ \\ \hline
+T & T & F          & F                                    \\
+T & F & T          & T                                    \\
+F & T & T          & T                                    \\
+F & F & F          & F                                   
+\end{tabular}
+
+\end{table}
+
+Therefore, $P \oplus Q \equiv (P \land \neg Q) \lor (Q \land \neg P)$.
+
+\section*{Question 2}
+\begin{table}[h]
+\centering
+\caption{2a. First De Morgan's law}
+\begin{tabular}{cc|cc}
+P & Q & $\neg (P \land Q)$ & $\neg P \lor \neg Q$ \\ \hline
+T & T & F          & F                                    \\
+T & F & T          & T                                    \\
+F & T & T          & T                                    \\
+F & F & T          & T                                   
+\end{tabular}
+
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{2b. First Domination Law}
+\begin{tabular}{cc|cc}
+P & T & $P \lor T$ & $T$ \\ \hline
+T & T & T          & T                                    \\
+F & T & T          & T                                    
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{2c. First Negation Law}
+\begin{tabular}{cc|cc}
+P & $\neg P$& $P \lor \neg P$ & $T$ \\ \hline
+T & F & T          & T                                    \\
+F & T & T          & T                                    
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{2d. First Absorption Law}
+\begin{tabular}{cc|cc}
+P & Q & $P \lor (P \land Q)$ & $P$ \\ \hline
+T & T & T          & T                                    \\
+T & F & T          & T                                    \\
+F & T & F          & F                                    \\
+F & F & F          & F                                   
+\end{tabular}
+\end{table}
+\section*{Question 3}
+\begin{tabular}{ll}
+$\neg (\neg P \land Q) \lor (P \land \neg R)$ & \\
+$(P \lor \neg Q) \lor (P \land \neg R)$ & (De Morgan's law) \\
+$P \lor (P \land \neg R) \lor  \neg Q$ & (Commutative) \\
+$(P \lor (P \land \neg R)) \lor  \neg Q$ & (Associative) \\
+$P \lor \neg Q$ & (Absoption) \\
+\end{tabular}
+
+Therefore, $\neg (\neg P \land Q) \lor (P \land \neg R) \equiv P \lor \neg Q$. 
+
+\section*{Question 4}
+\subsection*{4a. I can program using Python or Java, but not C\#.}
+
+I can program using Python is \textbf{P}
+
+I can program using Java is \textbf{J}
+
+I can program using C\# is \textbf{C}
+
+Then our statement is $(P \lor J) \land \neg C$.
+
+\subsection*{4b. The number of a leap year is divisible by 4 but not divisible by 100, unless it is divisible by 400.}
+
+Leap year divisible by 4 is \textbf{A}
+
+Leap year divisible by 100 is \textbf{B}
+
+Leap year divisible by 400 is \textbf{C}
+
+Then our statement is $A \land \neg B \land C$.
+
+\subsection*{4c. If I study hard, then I get good grades.}
+
+I study hard is \textbf{H}
+
+I get good grade is \textbf{G}
+
+Then our statement is $H \rightarrow G$.
+
+\subsection*{4d. Pluto is called a planet if and only if the sky bodies located in Kuiper Belt are called planets.}
+
+Pluto is called a planet is \textbf{P}
+
+Sky bodies located in Kuiper Belt are called planets is \textbf{K}
+
+Then our statement is $P \leftrightarrow K$.
+
+\end{document}
