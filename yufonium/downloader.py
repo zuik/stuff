@@ -13,4 +13,4 @@ def download(url, filename):
 
 if __name__ == "__main__":
     """Test for the downloader function with Konosuba's wallpaper"""
-    download("https://images7.alphacoders.com/782/thumb-1920-782943.png", "konosuba_wall.png")
+    # download("https://images7.alphacoders.com/782/thumb-1920-782943.png", "konosuba_wall.png")
