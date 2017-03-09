@@ -2,6 +2,7 @@ import requests
 
 
 def download(url, filename):
+    print("Downloading: {}".format(filename))
     req = requests.get(url, stream=True)
     with open(filename, "wb") as f:
         for chunk in req.iter_content(chunk_size=1024):
