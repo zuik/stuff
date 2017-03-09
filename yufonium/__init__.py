@@ -1,3 +1,6 @@
+import os
+
+from yufonium.converter import convert
 from yufonium.youtube import get_info, audio_urls
 from yufonium.downloader import download
 import json
@@ -23,4 +26,6 @@ if __name__ == '__main__':
     # print(audio_urls("test"))
     # Test downloader from init
     # print(download("https://images7.alphacoders.com/782/thumb-1920-782943.png", "konosuba_wall.png"))
-    download_audio('https://www.youtube.com/watch?v=cLfyjIlu9Uw')
+    # download_audio('https://www.youtube.com/watch?v=cLfyjIlu9Uw')
+    filename = 'cLfyjIlu9Uw.m4a'
+    print(convert("{}/{}".format(os.getcwd(), filename)))
