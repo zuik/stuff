@@ -27,5 +27,13 @@ if __name__ == '__main__':
     # Test downloader from init
     # print(download("https://images7.alphacoders.com/782/thumb-1920-782943.png", "konosuba_wall.png"))
     # download_audio('https://www.youtube.com/watch?v=cLfyjIlu9Uw')
-    filename = 'cLfyjIlu9Uw.m4a'
+    #filename = 'cLfyjIlu9Uw.m4a'
+    #print(convert("{}/{}".format(os.getcwd(), filename)))
+    # Test with another file
+    # url = "https://www.youtube.com/watch?v=mezYFe9DLRk"
+    # filename, info = download_audio(url)
+    # print(convert("{}/{}".format(os.getcwd(), filename)))
+    # Test url with playlist
+    url = "https://www.youtube.com/watch?v=hsT16TJJ0Nk&list=PLx-D1l67PVsU-IUsiKWHA5F7HuqJL23Bw"
+    filename, info = download_audio(url)
     print(convert("{}/{}".format(os.getcwd(), filename)))
