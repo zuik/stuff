@@ -1,8 +1,11 @@
 import json
+import re
 
 from youtube_dl import YoutubeDL
-
+from youtube_dl.extractor.youtube import YoutubePlaylistIE
 from yufonium.utils import save_test_json
+
+ytplie = YoutubePlaylistIE()
 
 ydl_opts = {
     "noplaylist": True  # For now, we will separate playlist and singles later
@@ -44,8 +47,26 @@ def extract_playlist(url):
         return info
 
 
+def is_playlist(url):
+    """
+    Check if playlist
+    :param url: Url from the user
+    :return: playlist_id or False
+    """
+    match = re.match(ytplie._VALID_URL, url)
+    if not match:
+        return False
+    playlist_id = match.group(1) or match.group(2)
+    return playlist_id
+
 
 if __name__ == "__main__":
     # Test playlist download
-    save_test_json("test.json", json.dumps(extract_playlist(
-        "https://www.youtube.com/watch?v=mezYFe9DLRk&list=PLYxjne28x-DnByKz30iY1d3m86KyhapVZ&index=6")))
+    # This url has video id in it
+    url = "https://www.youtube.com/watch?v=mezYFe9DLRk&list=PLYxjne28x-DlSRzO8yvMwmCTyGBrVAhka"
+    print(is_playlist(url))
+    url = "https://www.youtube.com/playlist?list=PLYxjne28x-DlSRzO8yvMwmCTyGBrVAhka"
+    print(is_playlist(url))
+    url = "https://www.youtube.com/watch?v=mezYFe9DLRk"
+    print(is_playlist(url))
+    # save_test_json("test.json", json.dumps(extract_playlist(url)))
