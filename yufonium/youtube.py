@@ -1,6 +1,8 @@
 import json
+
 from youtube_dl import YoutubeDL
-from youtube_dl.utils import ExtractorError
+
+from yufonium.utils import save_test_json
 
 ydl_opts = {
     "noplaylist": True  # For now, we will separate playlist and singles later
@@ -30,20 +32,6 @@ def audio_urls(info):
                     i['url'],
                     i['ext'],
                     ) for i in audio_tracks], key=lambda x: x[0])
-
-
-# Todo: Extract this to seperate functionality, for testing later
-def load_test_json(filename):
-    with open(filename, 'r') as f:
-        data = f.read()
-        return json.loads(data)
-
-
-def save_test_json(filename, data):
-    with open(filename, 'wb') as f:
-        f.write(data.encode("utf-8"))
-        return filename
-
 
 # Todo: Merge this with the original extract method.
 # There is no point to seperate this out.
