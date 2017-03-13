@@ -1,10 +1,4 @@
-# Clean, simple, compatible and meaningful.
-# Tested on Linux, Unix and Windows under ANSI colors.
-# It is recommended to use with a dark background and the font Inconsolata.
-# Colors: black, red, green, yellow, *blue, magenta, cyan, and white.
-#
-# http://ysmood.org/wp/2013/03/my-ys-terminal-theme/
-# Mar 2013 ys
+# Modified from https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/ys.zsh-theme
 
 #Virualenv stuff
 ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=" %{$fg[white]%}|py:%{$reset_color%} %{$fg[green]%}"

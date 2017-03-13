@@ -1,3 +1,6 @@
+# Setup powerline for zsh
+#. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zui/.oh-my-zsh
 
@@ -55,7 +58,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/texlive/2016basic/bin/universal-darwin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
