@@ -1,5 +1,6 @@
 import json
 from youtube_dl import YoutubeDL
+from youtube_dl.utils import ExtractorError
 
 ydl_opts = {
     "noplaylist": True  # For now, we will separate playlist and singles later
@@ -49,18 +50,14 @@ def save_test_json(filename, data):
 # The only different of from the other extract method is that
 # this doesn't have the extract playlist option.
 
-# Another problem with this is that
-# if in the playlist there is a video which has problem,
-# youtube_dl will throw an error.
-# Todo: Playlist error handling
 def extract_playlist(url):
-    with YoutubeDL({}) as ydl:
+    with YoutubeDL({"ignoreerrors": True}) as ydl:
         info = ydl.extract_info(url, download=False)
         return info
 
 
 
 if __name__ == "__main__":
-    pass
-    # Test get audio url
-    # print(audio_urls("blah"))
+    # Test playlist download
+    save_test_json("test.json", json.dumps(extract_playlist(
+        "https://www.youtube.com/watch?v=mezYFe9DLRk&list=PLYxjne28x-DnByKz30iY1d3m86KyhapVZ&index=6")))
