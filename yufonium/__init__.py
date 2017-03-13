@@ -17,6 +17,8 @@ def download_audio(url):
     # We will download the largest file in the list
     file = files[-2]
     filename = download(file[2], "{}_{}.{}".format(info['id'], file[1], file[3]))
+    with open(filename + ".json", "w") as f:
+        f.write(json.dumps(info))
     return (filename, info)
 
 
@@ -34,6 +36,7 @@ if __name__ == '__main__':
     # filename, info = download_audio(url)
     # print(convert("{}/{}".format(os.getcwd(), filename)))
     # Test url with playlist
-    url = "https://www.youtube.com/watch?v=hsT16TJJ0Nk&list=PLx-D1l67PVsU-IUsiKWHA5F7HuqJL23Bw"
+    # url = "https://www.youtube.com/watch?v=hsT16TJJ0Nk&list=PLx-D1l67PVsU-IUsiKWHA5F7HuqJL23Bw"
+    url = "https://www.youtube.com/watch?v=CLBwIXoeuG4"
     filename, info = download_audio(url)
     print(convert("{}/{}".format(os.getcwd(), filename)))
