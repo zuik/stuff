@@ -1,8 +1,7 @@
 # Setup powerline for zsh
 #. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/zui/.oh-my-zsh
+
 
 # Set default editor
 export EDITOR=vim
