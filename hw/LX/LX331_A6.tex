@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{LX331: Assignment 6}
+\author{Duy Nguyen}
+\date{30 March 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+\newcommand*{\msim}{\mathord{\sim}}
+\newcommand*{\mand}{\mathbin{\&}}
+
+\section{Models and the semantics of PredL}
+\subsection{Domain and assignment functions}
+We have: 
+\begin{center}
+    \begin{tabular}{c|c}
+        
+        a & Aragorn \\
+        b & Bilbo   \\
+        c & Celebrimbor \\
+    \end{tabular}
+    \begin{tabular}{c|c}
+    \textbf{x} & \textbf{Val(x)} \\ \hline
+        \textsc{love} & \verb|{<Aragorn, Bilbo>}| \\
+        \textsc{greek} &  \verb|{<Aragorn>}|  \\
+        \textsc{man} & \verb|{<Bilbo>}|\\
+        \textsc{between} & $\varnothing$ \\
+    \end{tabular}
+\end{center}
+
+\subsection{A wild tautology appears!}
+It is impossible to make (4) false. We observe the sentence $(\textsc{greek}(a) \mand \textsc{man}(a)) \rightarrow \textsc{man}(a)$, the only way to make a material implication false is to have the antecedent be true and have a false consequence. If we made our consequence (\textsc{man}) false, however, then we observe that our logic just contradict itself, as \textsc{man} appears both in the consequence and the antecedent. In another word, if we made the consequence false by setting \textsc{man}(a) to false then the antecedent will be false regardless of the truth value of \textsc{greek}(a). 
+
+Another way to look at this problem is the fact that formula in the form of $ (A \mand B) \rightarrow C $ can be translate into $ A \rightarrow B \rightarrow C $. Since $ \textsc{man}(a) \rightarrow \textsc{man}(a) $ is a tautology, it is not possible for us to construct a scenario where (4) would be false.
+
+(4) could be translate to English as: \textit{If a person is both a man and a Greek then that person is a man}.
+
+\subsection{Ain't a Greek man}
+We note that $\msim (\textsc{greek}(c) \lor \textsc{man}(c)) \equiv \msim \textsc{greek}(c) \mand \msim \textsc{man}(c)$. Since we have an \& operator, we need to make both side of \& true. Therefore, to make both (5) and (6) true, we have to make sure both $\msim \textsc{man}(c)$ and $\textsc{man}(c)$ true. Since logic doesn't allows non-binary gender, this is impossible.
+
+Let's look at a truth table. 
+
+\begin{tabular}{cc|cc}
+    $\textsc{greek}(c)$ & $\textsc{man}(c)$ & $\msim (\textsc{greek}(c) \lor \textsc{man}(c))$ & $\textsc{man}(c)$ \\ \hline 
+    T & T & F & T\\
+    T & F & F & F\\
+    F & T & F & T\\
+    F & F & T & F\\
+\end{tabular}
+
+From the truth table, we can see that (5) and (6) are \textbf{logically incompatible}. They are not logical denial however, since on the second row, they are both false. 
+
+\end{document}
