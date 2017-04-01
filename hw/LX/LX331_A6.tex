@@ -5,14 +5,6 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1.5in]{geometry}
 
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
-
 \title{LX331: Assignment 6}
 \author{Duy Nguyen}
 \date{30 March 2017}
@@ -56,7 +48,7 @@ Another way to look at this problem is the fact that formula in the form of $ (A
 We note that $\msim (\textsc{greek}(c) \lor \textsc{man}(c)) \equiv \msim \textsc{greek}(c) \mand \msim \textsc{man}(c)$. Since we have an \& operator, we need to make both side of \& true. Therefore, to make both (5) and (6) true, we have to make sure both $\msim \textsc{man}(c)$ and $\textsc{man}(c)$ true. Since logic doesn't allows non-binary gender, this is impossible.
 
 Let's look at a truth table. 
-
+\begin{center}
 \begin{tabular}{cc|cc}
     $\textsc{greek}(c)$ & $\textsc{man}(c)$ & $\msim (\textsc{greek}(c) \lor \textsc{man}(c))$ & $\textsc{man}(c)$ \\ \hline 
     T & T & F & T\\
@@ -64,6 +56,7 @@ Let's look at a truth table.
     F & T & F & T\\
     F & F & T & F\\
 \end{tabular}
+\end{center}
 
 From the truth table, we can see that (5) and (6) are \textbf{logically incompatible}. They are not logical denial however, since on the second row, they are both false. 
 
@@ -91,6 +84,22 @@ In contrast to (4b), (5b) makes sense. This is because there is no person who is
 
 \# The boat sunk (sank), but nothing was responsible for its sinking. 
 
-Even though to some people the sentence can have some sense (I know it does for me once I have read it enough time), the fact that an event happened without any causality seem intolerable. 
+Even though to some people the sentence can have some sense (I know it does for me once I have read it enough time), the fact that an event happened without any causality seem intolerable.
+
+\section{Lexical semantics of predicates}
+\subsection{identical $\sim$ different}
+This pair of words are \textbf{scalar antonyms} of each other. These two words are mutually exclusive but not jointly exhaustive of their domain. The meaning of the two words are opposites of each other. Furthermore, we can come up with a word that fits in the middle of these two words, e.g. \textit{similar}. Two item could be not identical but also not different. They are \textit{similar} to each other. 
+
+\subsection{wide $\sim$ narrow}
+In contrast to (3.1), the meaning of these two words encompassed their domain. A thing can be wide or narrow. However, there is no middle ground between wide or narrow. Therefore, these two are \textbf{complementary antonyms}.
+
+\subsection{murder $\sim$ kill}
+We observe that \textit{kill} is a vague notion, while \textit{murder} is a more definite description. An act of killing encompassed willful killing and involuntary killing. E.g. you can \textit{accidentally kill} someone by mistaken a vial of almond fragrance with a vial of cyanide. However, when you say \textit{murder}, there is a sense of intentional killing implied. Furthermore, you can kill plants, but you can't murder plants. Thus \textit{murder} is a \textbf{hyponym} of \textit{kill}.
+
+\subsection{near $\sim$ far}
+Similar to (3.2), the relationship between \textit{near} and \textit{far} is mutually exclusive and jointly exaustive. We can't come up with a word that can sit in the middle of \textit{near} and \textit{far} (average distance?). Therefore, we will say that \textit{near} and \textit{far} are \textbf{complementary antonyms} of each other.
+
+\subsection{ancestor $\sim$ descendant}
+Like husband and wife, the relationship between \textit{ancestor} and \textit{descendant} are of a two opposite relationship. They could be called \textbf{relational antonyms}. In details, a statement of \textit{Andrew is the ancestor of Barney} automatically implies that \textit{Barney is the descendant of Andrew}. We see that $\verb|<a, b>| \in Val(\textsc{ancestor}) \leftrightarrow \verb|<b, a>| \in Val(\textsc{descendant})$. 
 
 \end{document}
