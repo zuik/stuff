@@ -4,7 +4,7 @@
 #### The day before the exam
 
 ## Logic and Pragmatic Inference
-### Shortfall of predicate logic
+### Shortfall of propositional logic
 PropL is a very great thing. However, it does not mean that it's perfect. In particular, PropL has its shortcomming in describing the natural language. Observes these example:
 
 **(3)**
