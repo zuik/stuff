@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[margin=1.5in]{geometry}
+
+\title{LX331: Assignment 7}
+\author{Duy Nguyen}
+\date{18 April 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+\newcommand*{\msim}{\mathord{\sim}}
+\newcommand*{\mand}{\mathbin{\&}}
+
+\section{Some subjects are better than others}
+\subsection{To \textit{lend} and to \textit{borrow}}
+In both (1a) and (1b), we note that both NP \textit{Desmond} and \textit{Mabel} can be assessed under \textsc{Proto-Agent}'s umbrella:
+
+(i) Both NPs are intentional in their participation in the event (the lender have to give the book and the lend has to receive such book). 
+
+(ii) Both NPs are sentient.
+
+(iii) We can argue that the action of transferring the book changes the ownership of the book between one NP to the other NP. 
+
+(iv) There might or might not be a moment involve when we talk about lending or borrowing. There is a movement of ownership of the book, one person need to go and get the book or one need to take the book. 
+
+As we can see, we have a very equivalent amount of \textsc{Proto-Agent} characteristics between \textit{Desmond} and \textit{Mabel} (3 or 4 depend on what actually happens). This explains that either \textit{Desmond} and \textit{Mabel} are eligible to be in the subject NP role. Therefore, there are a pair of VP (\textit{borrow} v. \textit{lend}) to satisfy this need.  
+
+\subsection{But about the \textit{book}?}
+We note in our \textit{argument selection principles} that only the "best-fit" \textsc{Proto-Agent} can be in the subject NP's role. Furthermore, we have explore the case where two \textsc{Proto-Agent} are tied in their likeness to the \textsc{Proto-Agent}'s characteristics. Thus we understand that in order to have a predicate that accept some NP in a subject NP's role, that NP has to \textbf{at least equal} in the amount of likeness to the \textsc{Proto-agent} to others argument NPs.
+
+Thus, our job here is to examine NP \textit{book}. We see right away that in the event of lending, a book could not have intent (the book can't lend itself) nor it could have sentient (the book doesn't know it being lend). Thus it failed to be a \textsc{Proto-Agent}. This makes it unable to be in the subject NP.
+
+\section{Translating quantified arguments into First-Order Predicate Logic}
+
+\subsection{A young woman arrived}
+\textsc{Young}(a): a is young.
+
+\textsc{Woman}(a): a is female.
+
+\textsc{Arrived}(a): a has arrived.
+
+$x_n$ is a person.
+
+$$ \exists x_1 (\textsc{Young}(x_1) \mand \textsc{Woman} \mand \textsc{Arrived}(x_1)) $$
+
+\subsection{Ida saw something sinister}
+\textsc{Sinister}(a): a is sinister
+
+\textsc{See}(a, b): a sees b
+
+$i$ is Ida.
+
+$x_n$ is a thing. 
+
+$$\exists x_2 (\textsc{Sinister}(x_2) \mand \textsc{See}(i, x_2))$$
+
+\subsection{All roads lead to Rome}
+\textsc{Road}(a): a is a road.
+
+\textsc{Lead}(a, b): a leads to b.
+
+$r$ is Rome.
+
+$x_n$ is a thing. 
+
+$$ \forall x_3 (\textsc{Road}(x_3) \rightarrow \textsc{Lead}(x_3, r))$$
+
+
+
+\subsection{London welcomes all travellers from Spain}
+\textsc{Welcome}(a, b): a welcomes b.
+
+\textsc{Traveller}(a, b): a is a traveller from b.
+
+$s$ is Spain.
+
+$l$ is London.
+
+$x_n$ is a person. 
+
+
+$$\forall x_4 (\textsc{Traveller}(x_4,s) \rightarrow \textsc{Welcome}(l, x_4)) $$
+
+
+\subsection{There is a castle in Edinburgh}
+
+\textsc{In}(a, b): a is in (at the location of) b.
+
+\textsc{Castle}(a): a is a castle.
+
+$e$ is Edinburgh
+
+$x_n$ is a thing. 
+
+$$\exists x_5 (\textsc{Castle}(x_5) \mand \textsc{In}(x_5, e))$$
+
+
+\subsection{Someone murdered Clive}
+\textsc{Murder}(a, b): a murders b
+
+$c$ is Clive.
+
+$x_n$ is a person. 
+
+$$\exists x_6 (\textsc{Murder}(x_6, c))$$
+
+\subsection{Clive got murdered}
+
+Interestingly, the construction \textit{a got murdered} implied that there was someone intentional murdered a. Therefore, \textit{Clive got murdered} and \textit{Someone murdered Clive} is equivalent.
+
+\textsc{Murder}(a, b): a murders b
+
+$c$ is Clive.
+
+$x_n$ is a person. 
+
+$$\exists x_7 (\textsc{Murder}(x_7, c))$$
+
+\subsection{The boat got sunk}
+
+\textsc{Sink}(a, b): a is sunk by b
+
+$b$ is the boat.
+
+$x_n$ is a thing or a person. 
+
+$$\exists x_8 (\textsc{Sink}(b, x_8))$$
+
+
+\subsection{The boat sank}
+As we have noted above, the construction \textit{Blah got verb-ed} implied there is an actor that caused the event. Therefore, \textit{The boat got sunk} implied that the event of the boat sinking was caused by someone or something. On the other hand, \textit{The boat sank} could be sinking by just accident, which means there might be no one who is an actor in the event.
+
+\textsc{Sink}(a): a sank
+
+$b$ is the boat.
+
+$$\textsc{Sink}(b)$$
+
+\subsection{Nobody saw Charles}
+\textsc{See}(a, b): a sees b
+
+$c$ is Charles.
+
+$x_n$ is a person.
+
+$$ \msim \exists x_{10} (\textsc{See}(x_{10}, c))$$
+
+
+\subsection{Gina or Boris fed every puppy}
+
+\textsc{Feed}(a, b): a feeds b.
+
+$x_n$ is a puppy.
+
+$g$ is Gina.
+
+$b$ is Boris.
+
+$$\forall x_{11} (\textsc{Feed}(g, x_{11}) \lor \textsc{Feed}(b, x_{11}))$$
+
+
+
+\section{Quantified arguments and negation}
+In order to translate the sentences, we first define our predicate: 
+
+\hspace*{1cm} \textsc{LIKE}(a, b) where \textit{a likes b}. 
+
+We also define that:
+
+\hspace*{1cm} b $=$ Bob, and $x_n$ (where $n \in \mathbb{N}$) $=$ a person. 
+
+(1) \textit{Not everyone likes Bob}:
+
+$$ \msim \forall x_1 (\textsc{Like}(x_1, b))$$
+
+(2) \textit{Bob doesn't like anyone}:
+
+$$ \forall x_1 (\msim \textsc{Like}(b, x_2)) $$
+
+(3) \textit{Bob doesn’t like everyone} can be either:
+
+- There is no one that Bob would like. 
+
+$$ \forall x_3 (\msim \textsc{Like}(b, x_3)) $$
+
+
+- There are at least someone Bob would like. But for most people, Bob doesn't like them.
+
+$$ \exists x_4 (\msim \textsc{Like}(b, x_4)) $$
+
+(4) \textit{Everyone doesn't like Bob} can be either:
+
+- No one like Bob.
+
+$$ \forall x_5 (\msim \textsc{Like}(x_5, b))$$
+
+- There is someone who likes Bob. But for most people, they don't like Bob.
+
+$$ \exists x_6 (\msim \textsc{Like}(x_4, b)) $$
+
+The ways that (3) and (4) are ambiguous are interesting. We look at the two way that we can translate \textit{every}. 
+
+we can translate it as:
+
+(1) $$\msim \exists x_n (\textsc{Like}(x_n, b)) \equiv \forall x_n (\msim \textsc{Like}(x_n, b)) $$
+
+(2) $$\exists x_n (\msim \textsc{Like}(x_n, b)) $$
+
+This thus gives us an insight into the reason why (3) and (4) were ambiguous.
+
+\end{document}
