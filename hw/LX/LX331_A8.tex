@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+%\usepackage[margin=2in]{geometry}
+
+\title{LX331: Assignment 8}
+\author{Duy Nguyen}
+\date{24 April 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+\newcommand*{\msim}{\mathord{\sim}}
+\newcommand*{\mand}{\mathbin{\&}}
+\newcommand*{\mtab}{\hspace*{1cm}}
+
+\section{The Aristotelian Square of Opposition}
+For the purpose of ease of reference, we numbers the formulae as follows:
+
+\mtab (1) $\forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$
+
+\mtab (2) $\msim \exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$
+
+\mtab (3) $\exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$
+
+\mtab (4) $\msim \forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$
+
+ 
+\subsection{All those vain profs}
+The formula $\forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$ is \textbf{false}. The formula asked if \textbf{all} professors are vain. This is false as \textit{Carol} is not vain. In a logical way, we can see that when $x_1 = $ Carol, $\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1)$ is false. Thus the formula is false.
+
+The formula $\msim \exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$ is \textbf{false}. In plain English, the formula asked if no professor is vain. However, as we see in our domain, \textit{Pete} and \textit{Paul} are vain, thus the formula is false. In a logical way, we can see that when $x_1 = $ Pete or $x_1 = $ Paul, the formula is false. 
+
+\subsection{Can we have a not vain vain prof?}
+
+It is \textbf{not possible} to construct a model where $\forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$ (1) and $\msim \exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$ (2) are both true. 
+
+First, this incompatibility is evident through the English reading of these two formula: formula (1) reads: \textit{All professors are vain}. In the meantime, formula (2) reads: \textit{No professor are vain}.
+
+On the logical level, we can see that to satisfy (1), we \textbf{can't have} an individual who is a professor but not vain (which is the only case where (1) would rendered false). However, this individual is the only way to make (2) true. Technically, we could have a vain person come in to make (2) true, however this is not a model which we will entertain.
+
+\subsection{So, what can we say about the upper edge of the square?}
+As (1.2) points out, the two formula could not be \textbf{both true}. However, they could be \textbf{both false}. Thus the two formula are \textbf{logically incompatible}. 
+
+\subsection{There is that one prof}
+The formula  $\exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$ is \textbf{true}. The formula asked if there exists at least one vain professor. Looking at the model, we can see that both \textit{Pete} and \textit{Paul} are vain, thus satisfy the formula. On the logic level, we can see that when $x_1 = $ Pete or $x_1 = $ Paul, the formula is true. Even more easy to see is that this formula is the denial of (2). Since we have said in (1.1) that (2) is false, this formula must be true.
+
+In the similar manner, the formula $\msim \forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$ is \textbf{true}. The formula asked if not every professor is vain. This is a bit to ask in plain English, but we can understand the formula as asking whether there is a professor who is not vain. Since if there is vain professor means that the statement "all professors are vain" ($\forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$) is false, thus means that this formula is true. As we can see, \textit{Carol} is not vain, thus making this formula true. Like the previous formula, we can see that this formula is true since we have already shown that (1) is false.  
+
+\subsection{Muri-desu!}
+It is not possible for both (3) $\exists x_1 (\textsc{Professor}(x_1)\mand \textsc{Vain}(x_1))$ and (4) $\msim \forall x_1 (\textsc{Professor}(x_1)\rightarrow \textsc{Vain}(x_1))$ to be false. First we can see this through the English translation of the two formulae. (3) is read as: \textit{There exists at least one vain professor}, and (4) is read as: \textit{Not every professor is vain} or in other words \textit{There is a professor who is not vain}. If we try to falsify (4), we need all of our professor to be vain, which make (3) automatically true. Since if all of our professors are vain, then anyone of them would satisfy the truth condition of (3). 
+
+\subsection{How about the lower edge?}
+As (1.5) points out, it is not possible to have (3) and (4) to be both false. However, they could be both true. Thus they are \textbf{logically compatible}.
+
+
+\end{document}
+ 
