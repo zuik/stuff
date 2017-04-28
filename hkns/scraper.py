@@ -1,7 +1,10 @@
 import requests
 
 ITEM_ROOT = "https://hacker-news.firebaseio.com/v0/item/"
-
+TOP_ROOT = "https://hacker-news.firebaseio.com/v0/topstories.json"
+NEW_ROOT = "https://hacker-news.firebaseio.com/v0/newstories.json"
+BEST_ROOT = "https://hacker-news.firebaseio.com/v0/beststories.json"
+MAX_ROOT = "https://hacker-news.firebaseio.com/v0/maxitem.json"
 HEADERS = {
     "User-Agent": "Meow!"
 }
@@ -35,7 +38,6 @@ class HKitem:
 class HKstory(HKitem):
     def __init__(self, id, data):
         HKitem.__init__(self, id)
-        self.url = "{}{}.json".format(ITEM_ROOT, self.id)
         self.data = data
 
     def get_comments(self):
@@ -51,6 +53,30 @@ class HKstory(HKitem):
         # TODO: Store this in a database backend
         # TODO: Parse just the text
         pass
+
+
+def get_tops():
+    r = requests.get(TOP_ROOT, headers=HEADERS)
+    if r.status_code == 200:
+        return r.json()
+
+
+def get_news():
+    r = requests.get(NEW_ROOT, headers=HEADERS)
+    if r.status_code == 200:
+        return r.json()
+
+
+def get_bests():
+    r = requests.get(BEST_ROOT, headers=HEADERS)
+    if r.status_code == 200:
+        return r.json()
+
+
+def max_id():
+    r = requests.get(MAX_ROOT, headers=HEADERS)
+    if r.status_code == 200:
+        return int(r.text)
 
 
 if __name__ == "__main__":
