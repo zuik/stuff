@@ -1,13 +1,14 @@
 import requests
 
+HEADERS = {
+    "User-Agent": "Meow!"
+}
+
 ITEM_ROOT = "https://hacker-news.firebaseio.com/v0/item/"
 TOP_ROOT = "https://hacker-news.firebaseio.com/v0/topstories.json"
 NEW_ROOT = "https://hacker-news.firebaseio.com/v0/newstories.json"
 BEST_ROOT = "https://hacker-news.firebaseio.com/v0/beststories.json"
 MAX_ROOT = "https://hacker-news.firebaseio.com/v0/maxitem.json"
-HEADERS = {
-    "User-Agent": "Meow!"
-}
 
 
 class HKitem:
