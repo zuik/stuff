@@ -57,9 +57,3 @@ class HKstory(HKitem):
         # TODO: Store this in a database backend
         # TODO: Parse just the text
         pass
-
-
-if __name__ == "__main__":
-    # Test get data
-    a = HKitem(14223020)  # This is a story
-    print(a.get_data())

@@ -1,3 +1,6 @@
+import json
+
+import pymongo
 import requests, time
 from celery import Celery
 
@@ -23,10 +26,11 @@ app.config_from_object('celeryconfig')
 
 @app.on_after_configure.connect
 def setup(sender, **kwargs):
-    sender.add_periodic_task(600.0, get_tops.s())
-    sender.add_periodic_task(600.0, get_news.s())
-    sender.add_periodic_task(600.0, get_bests.s())
-    sender.add_periodic_task(600.0, max_id.s())
+    sender.add_periodic_task(30.0, get_tops.s())
+    sender.add_periodic_task(30.0, get_news.s())
+    sender.add_periodic_task(30.0, get_bests.s())
+    sender.add_periodic_task(30.0, max_id.s())
+    sender.add_periodic_task(15.0, scrape_story.s())
 
 
 @app.task(name='tops')
@@ -79,3 +83,36 @@ def max_id():
             "type": "max_id",
         })
         return mid
+
+
+@app.task(name='stories')
+def get_story(id):
+    url = "{}{}.json".format(ITEM_ROOT, id)
+    r = requests.get(url, headers=HEADERS)
+    if r.status_code == 200:
+        data = r.json()
+        data['_id'] = id
+        dd = db['items'].find_one({"_id": id})
+        if dd:
+            print("Duplicate")
+            return "Duplicate"
+        else:
+            db['items'].insert_one(data)
+            print("Insert {}".format(id))
+    return
+
+
+@app.task(name="scrape_stories")
+def scrape_story():
+    d = db['raw_time'].find_one({"type": "max_id"}, sort=[("time", -1)])
+    if d:
+        lid = d['id']
+        mid = db['items'].find_one(sort=[("time", -1)])
+        if mid:
+            while int(lid) > int(mid['id']):
+                print(lid, mid['id'])
+                get_story.delay(lid)
+                lid -= 1
+        else:
+            get_story.delay(lid)
+    return
