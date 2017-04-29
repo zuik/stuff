@@ -1,11 +1,7 @@
-import requests
-
 from pymongo import MongoClient
-import time
 
 client = MongoClient()
 db = client['hkns']
-
 
 HEADERS = {
     "User-Agent": "Meow!"
@@ -61,54 +57,6 @@ class HKstory(HKitem):
         # TODO: Store this in a database backend
         # TODO: Parse just the text
         pass
-
-
-def get_tops():
-    r = requests.get(TOP_ROOT, headers=HEADERS)
-    if r.status_code == 200:
-        tops = r.json()
-        db['raw_time'].insert_one({
-            "bests": tops,
-            "time": time.time(),
-            "type": "top",
-        })
-        return tops
-
-
-def get_news():
-    r = requests.get(NEW_ROOT, headers=HEADERS)
-    if r.status_code == 200:
-        news = r.json()
-        db['raw_time'].insert_one({
-            "bests": news,
-            "time": time.time(),
-            "type": "new",
-        })
-        return news
-
-
-def get_bests():
-    r = requests.get(BEST_ROOT, headers=HEADERS)
-    if r.status_code == 200:
-        bests = r.json()
-        db['raw_time'].insert_one({
-            "bests": bests,
-            "time": time.time(),
-            "type": "best",
-        })
-        return bests
-
-
-def max_id():
-    r = requests.get(MAX_ROOT, headers=HEADERS)
-    if r.status_code == 200:
-        mid = int(r.text)
-        db['raw_time'].insert_one({
-            "id": mid,
-            "time": time.time(),
-            "type": "max_id",
-        })
-        return mid
 
 
 if __name__ == "__main__":
