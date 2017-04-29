@@ -105,3 +105,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
+/hkns/celeryconfig.py
+.idea/workspace.xml
