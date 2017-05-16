@@ -16,17 +16,12 @@ def setup(sender, **kwargs):
 @app.task(name="ranking")
 def get_ranking():
     bests = get_bests()
-    if bests:
-        return "Got bests"
-    else:
-        log("error", {"bests": "no bests"})
-        return "Error best"
     tops = get_tops()
-    if tops:
-        return "Got tops"
+    if bests and tops:
+        return "Got bests and top"
     else:
-        log("error", {"tops": "no tops"})
-        return "Error top"
+        log("error", {"bt": "no bests or tops"})
+        return "Error best"
 
 
 @app.task(name="item")
