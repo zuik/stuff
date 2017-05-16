@@ -21,7 +21,7 @@ MAX_ROOT = "https://hacker-news.firebaseio.com/v0/maxitem.json"
 
 app = Celery()
 
-app.config_from_object('celeryconfig')
+app.config_from_object('hkns.config')
 
 
 @app.on_after_configure.connect
