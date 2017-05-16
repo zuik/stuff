@@ -9,8 +9,8 @@ app.config_from_object('hkns.config')
 
 @app.on_after_configure.connect
 def setup(sender, **kwargs):
-    sender.add_periodic_task(30.0, get_ranking.s())
-    sender.add_periodic_task(30.0, scrape_story.s())
+    sender.add_periodic_task(301.0, get_ranking.s())
+    sender.add_periodic_task(151.0, scrape_story.s())
 
 
 @app.task(name="ranking")
