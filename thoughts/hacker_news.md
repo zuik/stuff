@@ -54,3 +54,33 @@ componentDidMount() {
 }
 ```
 
+## 3. Finding data in a bunch of integer
+So we have a bunch of number, great! Now we would have to look at getting individual items from the Hacker News API. 
+Nicely, getting an item based on its ID is basically `https://hacker-news.firebaseio.com/v0/item/[item_id].json`. 
+
+We can make a component that encapsulate an Hacker News story for us. First, we need to decide how to present this. Very crudely, we can put the data in a bunch of headings as follows.
+
+```html
+<div className="hn-story">
+    <h2><a href={this.state.url}>{this.state.title}</a></h2>
+    <h3>by <i>{this.state.author}</i></h3>
+</div>
+```
+
+Another `fetch` to get the item data and we should be good.
+
+```jsx
+componentDidMount() {
+    fetch(`https://hacker-news.firebaseio.com/v0/item/${this.props._id}.json`)
+        .then(resp => resp.json())
+        .then(json => {
+            this.setState((prevState, props) => {
+                return {
+                    title: json.title,
+                    author: json.by,
+                    url: json.url,
+                };
+            })
+        });
+}
+```
