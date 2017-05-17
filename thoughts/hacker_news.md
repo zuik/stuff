@@ -107,4 +107,8 @@ Before we can see anything, we have to modify the `render` function of our `App`
 
 And we successfully replicated the front page of Hacker News. Our version is even more minimalistic than the front page. 
 
+![more simple than Hacker News front page][img]
+[img] = "./even_more_simple_than_hn.png" "Damn, we made something more minimalistic than Hacker News itself"
+
+
 Next, we will add more things into this minimal version of the app and hopefully make it better.
