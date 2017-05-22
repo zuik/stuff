@@ -1,3 +1,4 @@
+/hkns/config.py
 /celerybeat-schedule.db
 /docker
 /.idea
