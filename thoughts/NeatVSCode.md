@@ -28,3 +28,8 @@ And you should be able to get the result in no time.
     <li>Flah</li>
 </ul>
 ```
+
+## Quickly change Language of the document
+
+Ctrl (Command) + K then M then type the Language you would like to change to.
+
