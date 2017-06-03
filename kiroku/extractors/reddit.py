@@ -57,11 +57,11 @@ def _get_all(endpoint, limit=100):
             r = get(endpoint_url, params={"limit": limit})
         else:
             r = get(endpoint_url, params={"limit": limit, "after": after})
-        for thread in r['data']['children']:
-            thread['_id'] = thread["data"]["name"]
+        for thread in r["data"]["children"]:
+            thread["_id"] = thread["data"]["name"]
             threads.append(thread)
-            new = insert_update(thread, "threads")
-        after = r['data']['after']
+            new = insert_update(thread, "reddit")
+        after = r["data"]["after"]
     return threads
 
 
@@ -87,23 +87,23 @@ def _get_newest(endpoint, limit=25, page=1):
             r = get(endpoint_url, params={"limit": limit})
         else:
             r = get(endpoint_url, params={"limit": limit, "after": after})
-        for thread in r['data']['children']:
-            thread['_id'] = thread["data"]["name"]
+        for thread in r["data"]["children"]:
+            thread["_id"] = thread["data"]["name"]
             threads.append(thread)
-        after = r['data']['after']
+        after = r["data"]["after"]
     return threads
 
 
 def scrape_subreddit(slash_r, limit=100, page=2):
     sr = Reddit.get_new_sr(slash_r, limit=limit, page=page)
-    return [insert_update(thread, "threads") for thread in sr.threads]
+    return [insert_update(thread, "reddit") for thread in sr.threads]
 
 
 def scrape_domain(domain_name, limit=100, page=2):
     dm = Reddit.get_new_domain(domain_name, limit=limit, page=page)
-    return [insert_update(thread, "threads") for thread in dm.threads]
+    return [insert_update(thread, "reddit") for thread in dm.threads]
 
 
 def scrape_site(limit=100, page=2):
     reddit = Reddit.get_new(limit=limit, page=page)
-    return [insert_update(thread, "threads") for thread in reddit.threads]
+    return [insert_update(thread, "reddit") for thread in reddit.threads]
