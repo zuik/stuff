@@ -1,8 +1,10 @@
+import requests
+
 from kiroku.config import HEADERS
 from kiroku.db import log
 
 
-def _get(url, params, headers=HEADERS):
+def get(url, params, headers=HEADERS):
     """
     Issue a GET request and return the response
     :return: <dict> JSON parsed from the response
@@ -12,3 +14,4 @@ def _get(url, params, headers=HEADERS):
         return r.json()
     else:
         log("error", {"type": "request error", "statusCode": r.status_code, "resp": r.content})
+        raise Exception("Request error", "Status code: {}".format(r.status_code))
