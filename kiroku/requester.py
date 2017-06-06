@@ -17,5 +17,5 @@ def get(url, params=None, headers=HEADERS):
         except:
             return r.text
     else:
-        log("error", {"type": "request error", "statusCode": r.status_code, "resp": r.content})
+        log("error", {"type": "request error", "statusCode": r.status_code, "resp": r.content, "url": url})
         raise Exception("Request error", "Status code: {}".format(r.status_code))

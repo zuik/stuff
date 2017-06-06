@@ -1,3 +1,4 @@
+from kiroku.web_crawler import get_webpage
 from kiroku.db import log, insert_update, db
 from kiroku.requester import get
 
@@ -67,10 +68,11 @@ def scrape_hkns_items(base_id=None, limit=100):
     while max_id > base_id:
         base_id += 1
         item = HackerNews.get_item(base_id)
+        if item["type"] == "story" and item.get("url"):
+            get_webpage.delay(item["url"])
         insert_update(item, "HackerNews")
         print(f"Scrape item {item['_id']}")
     db['status'].update_one({"_id": "HN_max"}, {"$set": {"id": max_id}}, upsert=True)
-
 
 
 
