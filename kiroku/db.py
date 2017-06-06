@@ -37,6 +37,13 @@ def find_by_id(_id, collection_name):
     return db[collection_name].find_one({"_id": _id})
 
 
+def find_max(collection_name):
+    """
+    For HackerNews
+    :param collection_name: 
+    :return: 
+    """
+
 def log(event_type, data):
     """
     Log into the database
@@ -45,4 +52,4 @@ def log(event_type, data):
     :param dict data: 
     :return: 
     """
-    db.insert_one({"eventType": event_type, "data": data, "time": time.time()})
+    db['log'].insert_one({"eventType": event_type, "data": data, "time": time.time()})

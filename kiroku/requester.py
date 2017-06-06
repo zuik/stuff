@@ -4,7 +4,7 @@ from kiroku.config import HEADERS
 from kiroku.db import log
 
 
-def get(url, params, headers=HEADERS):
+def get(url, params=None, headers=HEADERS):
     """
     Issue a GET request and return the response
     

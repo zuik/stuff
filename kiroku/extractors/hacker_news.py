@@ -1,4 +1,4 @@
-from kiroku.db import log, insert_update
+from kiroku.db import log, insert_update, db
 from kiroku.requester import get
 
 ITEM_ROOT = "https://hacker-news.firebaseio.com/v0/item/"
@@ -14,14 +14,14 @@ class HackerNews:
     """
 
     @staticmethod
-    def get_max_id(self):
+    def get_max_id():
         r = get(MAX_ROOT)
         mid = int(r)
         log("hkns:max_id", {"id": mid})
         return mid
 
     @staticmethod
-    def get_tops(self):
+    def get_tops():
         r = get(TOP_ROOT)
         tops = r
         for story_id in tops:
@@ -31,21 +31,21 @@ class HackerNews:
         return tops
 
     @staticmethod
-    def get_news(self):
+    def get_news():
         r = get(NEW_ROOT)
         news = r
         log("hkns:news", {"news": news})
         return news
 
     @staticmethod
-    def get_bests(self):
+    def get_bests():
         r = get(BEST_ROOT)
         bests = r
         log("hkns:bests", {"bests": bests})
         return bests
 
     @staticmethod
-    def get_item(self, item_id):
+    def get_item(item_id):
         """
         Get an item by id
         
@@ -58,8 +58,20 @@ class HackerNews:
         return data
 
 
-def scrape_hkns_items(base_id, limit=100):
-    pass
+def scrape_hkns_items(base_id=None, limit=100):
+    if not base_id:
+        base_id = db['status'].find_one({"_id": "HN_max"})
+        base_id = int(base_id['id'])
+        print(f"Base_id {base_id}")
+    max_id = HackerNews.get_max_id()
+    while max_id > base_id:
+        base_id += 1
+        item = HackerNews.get_item(base_id)
+        insert_update(item, "HackerNews")
+        print(f"Scrape item {item['_id']}")
+    db['status'].update_one({"_id": "HN_max"}, {"$set": {"id": max_id}}, upsert=True)
+
+
 
 
 def scrape_hkns_metrics():
