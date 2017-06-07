@@ -1,9 +1,19 @@
 import hashlib
 
 from kiroku.db import insert_update
+from kiroku.extractors.hacker_news import scrape_hkns_items, scrape_hkns_metrics
 from kiroku.requester import get
 from kiroku.config import celery_app as app
 
+
+@app.on_after_configure.connect
+def setup(sender, **kwargs):
+    sender.add_periodic_task(301.0, hkns.s())
+
+
+@app.task(name="hkns")
+def hkns():
+    return scrape_hkns_items(), scrape_hkns_metrics()
 
 @app.task(name="crawl_web")
 def get_webpage(url):
