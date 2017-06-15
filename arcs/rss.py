@@ -24,6 +24,13 @@ class RSS:
         else:
             raise Exception("Error on requesting the feed")
 
+    def collect(self):
+        print(self.url)
+        # self.__init__(self.url)
+        # self.refresh()
+        # self.get_items()
+        # self.get_channel_info()
+
     def get_items(self):
         """
         Parse all the items in the feed
