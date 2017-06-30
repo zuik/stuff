@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{indentfirst}
+\lstdefinestyle{mystyle}{
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{CS210: Problem set \#1}
+\author{Duy Nguyen}
+\date{10 February 2017}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section*{1.}
+\begin{lstlisting}[language=c]
+unsigned replace_byte (unsigned x, int i, unsigned char b){
+    // Bit mask x to create a hole so that we can insert b
+    return ~((~(x | (0xFF << i*8)) | 
+                (b << i*8)) ^ 
+            (0xFF << i*8));
+}
+\end{lstlisting}
+\section*{2.}
+\begin{lstlisting}[language=c]
+// A. Any bit of x equals 1.
+int bit_equals_1(int x){
+    return x || 0;
+}
+// B. Any bit of x equals 0.
+int bit_equals_0(int x){
+    return ((x ^ INT_MAX)) && 1;
+}
+// C. Any bit in the least significant byte of x equals 1.
+int lsb_equals_1(int x){
+    // Destroy all bit except the last then compare it with 0
+    return ((x << 24) >> 24) || 0;
+}
+// D. Any bit in the most significant byte of x equals 0.
+int msb_equals_0(int x){
+    // Similar to C, but on the other direction
+    return (((x >> 24) ^ INT_MAX) ^ INT_MIN) || 0;
+}
+\end{lstlisting}
+\section*{3.}
+\begin{lstlisting}[language=c]
+/* Return 1 when any odd bit of x equals 1; 0 otherwise.
+Assume w=32. */
+int any_odd_one(unsigned x){
+// Bit mask all the odd bit
+    return (0xAAAAAAAA & x) && 1;
+}
+\end{lstlisting}
+\section*{4.}
+A. The code has the right idea but didn't care for the signed-ness of the bytes extracted. Therefore, for the positive number, it will return the correct answer, it will not return the correct answer for the negative number though.
+
+B. 
+\begin{lstlisting}[language=c]
+int xbyte(packed_t word, int bytenum){
+    bytenum = bytenum << 3;
+    //Extract the byte like the "predecessor"
+    int byte_extracted = (word >> bytenum) & 0xFF; 
+    // Go get the correct sign
+    return ((byte_extracted - (1 << 8)) << 24) >> 24;
+}
+\end{lstlisting}
+\section*{5.}
+\begin{lstlisting}[language=c]
+int tsub_ok(int x, int y){
+    int sb_a = (unsigned)x >> 31;
+    int sb_b = (unsigned)y >> 31;
+    int sb_c = (unsigned)(x-y) >> 31;
+    // We compare the sign and see if there is a weird sign change happened.
+    return ((sb_a ^ sb_b) & ~(sb_b ^ sb_c)) ^ 1;
+}
+\end{lstlisting}
+\section*{6}
+a. $(010101)_2 = 21_{10}$ 
+
+b. $(011100)_2 = 1C_{16}$
+
+c. $54.125_{10} = (110110.001)_2$
+
+d. $(122.3)_4 = 26.75_{10} = 11010.11_2 = 1A.C_{16} $
+
+\section*{7.}
+    (a) 1 1110 + 1 1101 = 11 0011. Not overflowed. The result was correct.
+    
+    (b) 1 0111 + 1 0111 = 10 1110. Overflowed: Two negative number add to a positive number.
+    
+    (c) 1 1111 + 0 1011 = 10 1010. Not overflowed. The result was correct.
+
+\section*{8.}
+\begin{tabular}{l|c|r}
+& Size & Bit value \\ \hline
+char c = 35; & 1 byte & 0010 0011  \\
+char d = 'G';& 1 byte & 0100 0111 \\
+int x = -42; & 4 byte & 1111 1111 1111 1111 1111 1111 1101 0110
+\end{tabular}
+\section*{9.}
+\begin{lstlisting}[language=c]
+#include <stdio.h>
+main() {
+    char n[4];
+    int x;
+    printf("Enter a 3-digit non-negative number: ");
+    scanf("%s", n);
+    x = ((n[0] & 0xF) << 8) | ((n[1] & 0xF) << 4) | (n[2] & 0xF);
+    printf("The number is %x \n", x);
+    return 0;
+}
+\end{lstlisting}
+\end{document}

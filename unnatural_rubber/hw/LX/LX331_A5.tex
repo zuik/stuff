@@ -1,0 +1,265 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{LX331: Assignment 5}
+\author{Duy Nguyen}
+\date{23 March 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+\section{On success and failure}
+\subsection{Entailments}
+First, we want to check if (1a) entails (2a). Let's employ non-deniability test:
+
+\# John succeeded in losing weight. Indeed, John \textbf{didn't} lost weight.
+
+While we are at it, let's also check (1b) and (2b). 
+
+\# John failed to lose weight. And in fact, John lose weight. 
+
+As we can see, both pair of sentences are in an entailment relationship. More specifically, (1a) entails (2a) and (1b) entails (2b).
+
+\subsection{Presuppositions}
+
+Let's check the S family of (1a) and (1b).
+
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & John succeeded in losing weight.  \\
+    $\sim S$    & John didn't succeeded in losing weight.  \\
+    $S?$        & Did John succeeded in losing weight?  \\
+    $if-S$      & If John succeeded in losing weight,   \\
+                & then I should probably go to the gym more.  \\
+    $maybe-S$   & Maybe John succeeded in losing weight.  \\
+\end{tabular}
+\end{center}
+
+Looking through the s-family of (1a), we cannot say that John \textbf{has lost weight}. Therefore, \textbf{(1a) does not presupposes (2a)}.
+
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & John failed to lose weight. \\
+    $\sim S$    & John didn't failed to lose weight. \\
+    $S?$        & Did John failed to lose weight? \\
+    $if-S$      & If John failed to lose weight,  \\
+                & then I probably shouldn't hope I can too. \\
+    $maybe-S$   & Maybe John failed to lose weight. \\
+\end{tabular}
+\end{center}
+
+Looking through the s-family of (1b), we again cannot say that John has or hasn't lost weight. Therefore, \textbf{(1b) does not presupposes (2b)}.
+
+\subsection{But, we can say something else}
+If we look at the s-family for both (1a) and (1b), we can say one thing: \textbf{John tried to lose weight}. In fact, the pair of sentences in (1) allows us to infer that John has at least \textbf{tries} to lose weight. The pair of sentences in (2) however, don't give us that opportunity. 
+
+\subsection{Wait, what is it?}
+Thus we paused and think about what is this inference is. 
+
+Let's check the entailment of this sentence with (1a) and (1b) using the non-deniability test.
+
+John succeeded in losing weight. In fact, John didn't tried to lose weight.
+
+John failed in losing weight. In fact, John didn't tried to lose weight.
+
+We can see that unlike sentences in (2), this statement that we just infer isn't an entailment of (1a) or (1b). 
+
+If we look through the sentence's s-family:
+
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & John tried to lose weight.\\
+    $\sim S$    & John didn't tried to lose weight.\\
+    $S?$        & Did John tried to lose weight?\\
+    $if-S$      & If John tried to lose weight,\\
+                & I would have seen him at the gym this morning.\\
+    $maybe-S$   & Maybe John tried to lose weight.\\
+\end{tabular}
+\end{center}
+
+We can see that this doesn't allow us to infer any information about whether John has succeeded (1a) or failed (1b) in his attempt to lose weight.
+
+So this new sentence is not an entailment or presuppose (1a) or (1b). The only thing we know that (1a) or (1b) allows us to presuppose this new sentence. 
+
+\section{\textit{Even}}
+\subsection{Entailment}
+It seem that the non-deniability test works pretty well when it come to looking at these kind of sentences. Let's use the same test again with \textit{even}.
+
+\# Even Stanley reads poetry. In fact, he don't read poetry. 
+
+This result in a illogical sentence so we can say that \textbf{(3) entails (4)}. 
+
+\subsection{I presupposes ...}
+Let's check the s-family of (3). 
+
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & Even Stanley reads poetry. \\
+    $\sim S$    & It isn't true that even Stanley reads poetry. \\
+    $S?$        & Is it true that even Stanley reads poetry? \\
+    $if-S$      & If even Stanley reads poetry, \\
+                & then my neighbor is Lord Byron. \\
+    $maybe-S$   & Maybe even Stanley reads poetry. \\
+\end{tabular}
+\end{center}
+
+It is a bit hard to make try to figure out the presuppositions using this s-family. However, what we can see is that there is some sense of incredulity of the fact that Stanley reads poetry. From this s-family, we can't conclude (4), or rather, we can't make out the fact that Stanley actually read poetry or not. Therefore, \textbf{(3) does not presupposes (4)}.
+
+\subsection{Is Stanley usually reads poetry?}
+However, from the sentences in the s-family of (3), we can conclude something, \textbf{Stanley doesn't usually reads poetry}. Looking for the definition of "even", one dictionary said "implying an extreme example in the case mentioned, as compared to the implied reality" (https://en.wiktionary.org/wiki/even\#Adjective).
+
+We can see that (3) allows us to infer whether Stanley usually reads poetry or not while (4) doesn't give us this. The only thing (4) gives us is whether he reads poetry or not. It is the incredulity of the speaker in (3) that allows us to have this inference.
+
+\subsection{Even Stanley ...}
+
+We can use the non-deniability entailment test:
+
+Even Stanley reads poetry. In fact, he usually reads poetry. 
+
+We can see that (3) does not entails this new statement that we inferred. However, (3) presuppose this new statement as reading from the s-family of (3), we can get a sense that Stanley isn't a person who would read poetry. 
+
+\subsection{Stanley even ...}
+\subsubsection{Opening remarks}
+At the first glance, we can't see that there is a big difference between "Even Stanley reads poetry" and "Stanley even reads poetry". 
+\subsubsection{Entailment and presupposition}
+Let's use the non-deniability entailment test:
+
+\# Stanley even reads poetry. In fact, he doesn't read poetry. 
+
+Since we can't denial the fact that Stanley reads poetry, \textbf{(5) entails (4)}. 
+
+Let's us set-up the s-family of (5).
+
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & Stanley even reads poetry. \\
+    $\sim S$    & It isn't true that Stanley even reads poetry. \\
+    $S?$        & Is it true that Stanley even reads poetry? \\
+    $if-S$      & If Stanley even reads poetry, \\
+                & then he must be a humanity major. \\
+    $maybe-S$   & Maybe Stanley even reads poetry. \\
+\end{tabular}
+\end{center}
+
+From this s-family, we can't establish (again) whether Stanley actually reads poetry. The speaker here seem incredulous on whether he actually reads poetry. So \textbf{(5) doesn't presupposes (4)}.
+
+\subsubsection{However, we can say that ...}
+From looking at the s-family for (5), we can infer that even if Stanley doesn't actually reads poetry, the speaker know that \textbf{Stanley reads}. In fact, \textbf{Stanley reads a lot}, though the speaker doesn't know if his reading habit includes poetry. 
+
+We can test for entailment to (5). 
+
+Stanley reads a lot. He even reads poetry. 
+
+Through redundancy test, this sentence sound very natural. Therefore, we can say there isn't an entailment relationship. 
+
+Reading from the s-family of (5), we can see that the inferred sentence is supported by reading from the sentences in the s-family. Therefore, This new inferred statement is an presupposition from (5). 
+
+\subsection{Even Stanley vs. Stanley even}
+It seem that "even" gives the rest of the sentence after it an air of incredulity. In (3), we question the fact if Stanley actually reads poetry. In (5) we question the fact that poetry usually get reads but we know that Stanley reads something. 
+
+\section{Translating English Sentences into Predicate Logic}
+
+\begin{center}
+\begin{tabular}{r|l}
+    GIVE(x, y, z) & x gives y to z \\
+    UNDER(x, y) & x is under y  \\
+    SHOW(x, y, z) & x shows y to z \\
+    EAST(x, y) & x is east of y \\
+    SURGEON(x) & x is a surgeon \\
+    PARTNER(x, y) & x is a partner of y \\
+    BROTHER(x, y) & x is brother of y \\
+    HUG(x, y) & x hugged y \\
+\end{tabular}
+\begin{tabular}{r|l}
+    j & John \\
+    m & Mary \\
+    d & ten dollars\\
+    t & Toby \\
+    a & the table \\
+    c & Clive \\
+    p & the photos \\
+    ma & Maddy\\
+    h & China \\
+    e & Europe \\
+    s & Sheila\\
+    x & Max \\
+    y & Clyde \\
+    l & Latoya \\
+    g & Gina \\
+    i & Damien \\
+    b & Britt\\
+    r & Jerry \\
+    be & Ben \\
+    pa & Paul \\
+    sh & Sheila \\
+    mar & Marcia \\
+\end{tabular}
+\end{center}
+From this table, we can translate the sentences:
+
+\begin{tabular}{l|l}
+(1) John gave ten dollars to Mary.  & GIVE(j,d,m) \\
+(2) Mary was given ten dollars by John. & GIVE(j,d,m) \\
+(3) Toby was under the table.   &  UNDER(t, a)\\
+(4) Clive showed Maddy the photos.  &  SHOW(c, p, ma)\\
+(5) China is east of Europe.    & EAST(h, e)\\
+(6) Sheila is a surgeon.    & SURGEON(s)\\
+(7) Max, Clyde and Damien partnered with & PARTNER(x,l) \& PARTNER(y, g) \\
+Latoya, Gina and Britt respectively.   & \& PARTNER(i, b)\\
+(8) Jerry is Ben’s brother. & BROTHER(r, be)\\
+(9) Paul is the brother of Sheila.  & BROTHER(pa, sh)\\
+(10) Jerry and Ben are brothers.    & BROTHER(r, be) \& BROTHER(be, r)\\
+(11) Clive hugged Marcia & HUG(c,mar) \\
+(12) Marcia hugged Clive & HUG(mar, c)\\
+(13) Clive and Marcia hugged. & HUG(c, mar) \& HUG(mar, c)\\
+\end{tabular}
+
+\begin{center}
+\begin{tabular}{r|l}
+CAP(a,b) & a is capital of b \\
+GO(a,b) & a go to b\\
+VISIT(a,b) & a visit b \\
+INTERVIEW(a,b) & a interview b \\
+LAUGH(a) & a laugh \\
+RICH(a) & a is rich \\
+GENEROUS(a) & a is generous\\
+\end{tabular}
+\begin{tabular}{r|l}
+    a & Sydney\\
+    b & Canberra\\
+    c & Australia\\
+    d & Audrey\\
+    e & Minneapolis\\
+    f & Rick\\
+    g & Cameron\\
+    h & Alice\\
+    i & Bill\\
+    j & Frank\\
+\end{tabular}
+\end{center}
+\begin{tabular}{l|l}
+(14) Either Sydney or Canberra is the capital of Australia. & CAP(a, c) \oplus CAP(b,c)\\
+(15) Audrey went to Minneapolis and visited Rick & GO(d, e) \& VISIT(d, f) \\
+or interviewed Cameron.  & \lor INTERVIEW(d, g) \\
+(16) Alice didn’t laugh and Bill didn’t either. & \sim LAUGH(h) \& \sim LAUGH(i)  \\
+(17) Alice didn’t laugh and nor did Bill. & \sim (LAUGH(h) \& LAUGH(i) \\
+(18) Neither Bill nor Alice laughed & \sim (LAUGH(h) \& LAUGH(i) \\
+(19) Frank is not both rich and generous. & \sim (RICH(j) \oplus GENEROUS(j)) \\
+\end{tabular}
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+
+\title{CS131 B1: HW 3}
+\author{Duy Nguyen}
+\date{2 October 2016}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\subsection*{a.}
+\begin{tabular}{l|l}
+    The program has bugs or works correctly. & $B \lor C$ \\
+    The program is bug-free or needs debugging. & $\neg B \lor N$ \\ \hline
+    the program works correctly or needs debugging.&$C \lor N$.
+\end{tabular}
+
+This argument is valid since it follows the valid argument form of \textit{resolution}. 
+\subsection*{b.}
+\begin{tabular}{l|l}
+    The error is in function A or B. & $A \lor B$ \\ \hline
+    I need to debug function A & $A$
+\end{tabular}
+
+We construct a truth table:
+
+\begin{tabular}{cc|cc}
+    $A$&$B$&$A \lor B$&$A$ \\ \hline
+    T&T&T&T\\
+    T&F&T&T\\
+    \textbf{F}&\textbf{T}&\textbf{T}&\textbf{F}\\
+    F&F&F&F
+\end{tabular}
+
+We note that there is one case where a true premise leads to a false conclusion. Thus this argument is invalid. 
+
+\subsection*{c.}
+\begin{tabular}{l}
+    All integers are rational numbers. \\
+    All rational numbers can be represented as $p/q$, \\
+    where
+p and q are integers. \\ 
+    There are no such p and q which satisfy $x=p/q$. \\ \hline
+    x is irrational and x is not an integer.
+\end{tabular}
+
+ 
+ We have: ``all integers are rational numbers" and ``all rational numbers can be represent as $p/q$" are both true since this is the definition of rational number. So if the third premise ``there are no such p and q which satisfy $x=p/q$" is true, then x is not an rational number. And since integers are subset of rational numbers, x is not an integer. Therefore, this argument is valid.
+ 
+ \subsection*{d.}
+ \begin{tabular}{l}
+     All the planets of the solar system orbit the Sun. \\
+     Pluto orbits the Sun. \\ \hline
+     Pluto is a planet of
+the solar system.
+ \end{tabular}
+
+Both of the premises are true. However, the conclusion is false. Therefore, this is not a valid argument.
+
+\section*{Question 2}
+\subsection*{a. Every CS student knows Python and Java.}
+$\forall x (C(x) \rightarrow (P(x) \land J(x)))$
+
+\begin{tabular}{ll}
+    Where: & \textbf{x} are all people. \\
+    & \textbf{C(x)} are those who are a CS student. \\
+    & \textbf{P(x)} is a person who knows Python.\\
+    & \textbf{J(x)} is a person who knows Java.
+\end{tabular}
+
+\subsection*{b. Some CS students know C++ or C\#.}
+$\exists x (C(x) \land (P(x) \lor S(x))$
+
+\begin{tabular}{ll}
+    Where: & \textbf{x} are all people. \\
+    & \textbf{C(x)} are those who are a CS student. \\
+    & \textbf{P(x)} is a person who knows C++.\\
+    & \textbf{S(x)} is a person who knows C\#.
+\end{tabular}
+
+\subsection*{c. For every successful person there is someone even more successful, for every unhappy person there is someone more unhappy.}
+
+$\forall x \exists y P(x,y)$
+
+\begin{tabular}{ll}
+    Where: & \textbf{x} is a successful/unhappy person. \\
+    & \textbf{P(x,y)} is where y is more successful/unhappy than x 
+\end{tabular}
+
+\subsection*{d. If y=f(x) is a function, then for every x there exists only one y.}
+$ y = f(x) \rightarrow \forall x \exists y $
+
+\section*{Question 3}
+\subsection*{2a.}
+$\neg \forall x (C(x) \rightarrow (P(x) \land J(x)))$
+
+$\exists x \neg (C(x) \rightarrow (P(x) \land J(x)))$
+
+$\exists x (C(x) \land \neg (P(x) \land J(x)))$
+
+$\exists x (C(x) \land (\neg P(x) \lor \neg J(x)))$
+
+There exists a person who is a CS student and does not know Python nor Java.
+
+\subsection*{2b.}
+$\neg \exists x (C(x) \land (P(x) \lor S(x))$
+
+$\forall x \neg (C(x) \land (P(x) \lor S(x))$
+
+$\forall x (\neg C(x) \lor \neg (P(x) \lor S(x))$
+
+$\forall x (\neg C(x) \lor (\neg P(x) \land \neg S(x))$
+
+For all people, there is not a CS student or there is not a person who know both C++ and C\#.
+
+\end{document}

@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\title{CS131 B1: HW 5}
+\author{Duy Nguyen}
+\date{4 November 2016}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{1. Prove that $1^2 - 2^2 + 3^2 - ... + (-1)^{n-1} n^2 = (-1)^{n-1} n(n+1)/2$, whenever $n$ is a positive integer.}
+
+\textbf{Base case:}
+$$1^2 = (-1)^0 1(1+1)/2$$
+$$1^2 = \frac{2}{2} = 1$$
+
+\textbf{Induction hypothesis:} Assume that
+$$1^2 - 2^2 + 3^2 - ... + (-1)^{k-1} k^2 = (-1)^{k-1} \frac{k(k+1)}{2}$$
+
+\textbf{Induction goal:} 
+$$1^2 - 2^2 + 3^2 - ... + (-1)^{k-1} k^2 + (-1)^{k} (k+1)^2 = (-1)^{k} \frac{(k+1)(k+2)}{2}$$
+
+\textbf{Proof:}
+$$1^2 - 2^2 + 3^2 - ... + (-1)^{k-1} k^2 + (-1)^{k} (k+1)^2 = (-1)^{k-1} \frac{k(k+1)}{2} + (-1)^{k} (k+1)^2$$
+We look at the right side of the equation:
+$$ = (-1)^{k-1} \frac{k(k+1)}{2} + (-1)^{k} (k+1)^2$$
+$$ = (-1)^{k} (k+1) ((-1)^{-1}\frac{k}{2} + (k+1))$$
+$$ = (-1)^{k} (k+1) (\frac{-k}{2} + \frac{2k}{2} + \frac{2}{2})$$
+$$ = (-1)^{k} (k+1) \frac{-k + 2k +2}{2}$$
+$$ = (-1)^{k} \frac{(k+1) (k+2)}{2}$$
+
+We have proved the hypothesis through induction.
+
+\subsection*{2. Prove that $n!<n^n$, where $n$ is an integer greater than 1.}
+
+\textbf{Base case:}
+Pick the next integer greater than 1. With $n=2$, we have $2<2^2 = 4$ so $2<4$.
+
+\textbf{Induction hypothesis:} Assume that 
+$$k! < k^k$$
+
+\textbf{Induction goal:}
+$$(k+1)! < (k+1)^{k+1}$$
+
+\textbf{Proof:}
+$$(k+1)!< (k+1)^{k+1}$$
+$$(k+1)*k!<(k+1)*(k+1)^k$$
+Cancel $k+1$ from each side of the inequality, we have
+$$k! < (k+1)^k$$
+Compare this to what we have assumed ($k! < k^k$) we note that this inequality is true, since $k$ is always positive and thus $k<k+1$ so $k^k<(k+1)^k$ thus $k! < (k+1)^k$ is true.
+
+\subsection*{3. Prove that 3 divides $n^3 +2n$ whenever n is a positive integer.}
+
+\textbf{Base case:} 
+$$1^3 + 2\cdot 3 = \frac{6}{3} = 2$$
+
+\textbf{Inductive hypothesis:} Assume that 
+$k^3 + 2n$ is divisible by $3$.
+
+\textbf{Inductive goal:} $(k+1)^3 + 2(k+1)$ is divisible by $3$.
+
+\textbf{Proof:}
+We have 
+$$(k+1)^3 + 2(k+1)$$
+$$k^3 + 3k^2 + 3k + 1 + 2k + 2$$
+$$(k^3 + 2k) + 3(k^2+k +1)$$
+
+Notice that $k^3 + 2k$ is divisible by $3$ as we have assumed and $3(k^2+k +1)$ is also divisible by $3$. Thus the hypothesis is proven through induction.
+
+\subsection*{4. Show that $n$ cents payment for $n \geq 8$ can be formed using just 3-cents and 5-cents stamps.}
+
+\textbf{Base case:} We notes the result of $P(n)$ for $n = 8, 9, 10$
+
+$$8= 5+3$$
+$$9 = 3 + 3+ 3$$
+$$10=5+5$$
+
+\textbf{Inductive hypothesis:} We note our result is true $\forall k: 8\leq k\leq n$ where $n = 10$. 
+
+\textbf{Inductive goal:} $\forall n >  10$ our result is true.
+
+\textbf{Proof:}
+We note that for $n>10$, $P(n)$ is just either $P(8), P(9),$ or $P(10)$ adding with the appropriate amount of 3-stamps. In another word, for $P(n)$ for $n>10$, we can write $n$ as $x + 3^k$, where $x = 8,9, $or$ 10$ and $k$ is an positive integer $>0$. In this way, since $P(8), P(9),$ and $P(10)$ are true, we can reduce any $P(n)$ back to any of these three cases.
+
+Thus the hypothesis is true through induction.
+
+\end{document}

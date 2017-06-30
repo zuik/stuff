@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\title{LX331: Assignment 4}
+\author{Duy Nguyen}
+\date{3 March 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+
+\section{Exploring semantic ambiguity with propositional logic}
+
+So in (3a) we have the ambiguous sentence: \textit{I didn’t go to Phonetics \textbf{or} Syntax 1 today}.
+
+In this sentence, let  $p =$ I went to Phonetics today and $q =$ I went to Syntax 1 today, then we can write our interpretations of the sentence in propositional logic as follow:
+
+(3b) $\sim (p \lor q)$
+
+(3c) $\sim (p \oplus q)$
+\begin{center}
+\begin{tabular}{cc|cc}
+    $p$ & $q$ &  $\sim (p \lor q)$ & $\sim (p \oplus q)$ \\ \hline
+    T & T & F & T \\
+    T & F & F & F \\
+    F & T & F & F \\
+    \textbf{F} & \textbf{F} & \textbf{T} & \textbf{T} \\
+\end{tabular}
+\end{center}
+
+Note here that we can see (3b) entails (3c) as there is no row that $\sim (p \lor q)$ is true and $\sim (p \oplus q)$ is false. The entailment relationship between (3b) and (3c) show that there is not really two different meaning of \textit{or}.
+
+\section{The conversational implicatures of \textit{or}-sentences}
+
+With $p$ = You have small children, $q$ = You need special assistance, and $r$ = You may board the flight early; we have:
+
+(1) If you have small children, or you need special assistance, then you may board the flight early.
+
+$ p \lor q \rightarrow r$
+
+(7) If you have small children, and you need special assistance, then you may board the flight early.
+
+$ p \& q \rightarrow r$
+\begin{center}
+\begin{tabular}{ccc|cc|cc}
+    $p$     & $q$     & $r$   &  $p \lor q$ &  $(p \lor q) \rightarrow r$          & $p \& q$  & $(p \& q) \rightarrow r$               \\ \hline
+    T       & T       & T     & T           & \textbf{T}                                     & T         & \textbf{T}                    \\
+    T       & T       & F     & T           & F                                     & T         & F                    \\
+    T       & F       & T     & T           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    T       & F       & F     & T           & F                                     & F         & T                    \\
+    F       & T       & T     & T           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    F       & T       & F     & T           & F                                     & F         & T                    \\
+    F       & F       & T     & F           & \textbf{T}                                     & F         & \textbf{T}                    \\
+    F       & F       & F     & F           & \textbf{T}                                     & F         & \textbf{T}                    \\
+\end{tabular}
+\end{center}
+
+From the truth table, we can see that (1) asymmetrically entails (7). This make sense, as the category that gets to board the flight early are: a. have small children; b. need special assistance; and c. both have small children and need special assistance. Thus the meaning of and both is include in (1). 
+
+However, the construction like (1) and (7) will not work for the exclusive or meaning. That is an utterance of (4) will not entails (6). From these two relationships, the listener can infer the if the \textit{or} carries an exclusive implication by the fact if that version implies an \textit{and} utterance.
+
+\section{Presuppositions vs. Entailments}
+
+\subsection*{(8)} From an utterance of (8a), we can easily see that it contains more information than both (8b) and (8c). We can see that through redundancy test where:
+
+\# The woman who murdered Arturo was arrested. In fact, she was arrested.
+
+\# The woman who murdered Arturo was arrested. In fact, she murdered Arturo. 
+
+Therefore, sentence \textbf{(8a) entails both (8b) and (8c)}.
+
+To test for presupposition, we construct the s-family of (8a).
+\begin{center}
+\begin{tabular}{r|l}
+    $S$ & The woman who murdered Arturo was arrested. \\
+    $\sim S$ & The woman who murdered Arturo was not arrested \\
+    $S?$ & Was the woman, who murdered Arturo, arrested? \\
+    $if-S$ & If the woman, who murdered Arturo, arrested, \\
+    & the victim's lawyer will press charges. \\
+    $maybe-S$ & Perhaps the woman, who murdered Arturo, was arrested.\\
+\end{tabular}
+\end{center}
+At this point, we can see that through looking at the s-family, we can't not be sure if the woman was arrested, but we can say with stronger belief that Arturo was murdered, possibly by a woman. Therefore \textbf{(8a) presupposes (8c) and does not presupposes (8b)}
+
+\subsection*{(9)} From an utterance of (9a), the listener will know two pieces of information. The woman was arrested and Arturo was murdered. We again uses the redundancy test here:
+
+\#The woman who was arrested murdered Arturo. In fact, she was arrested.
+
+\#The woman who was arrested murdered Arturo. In fact, she murdered Arturo,
+
+Both show redundancy thus, we can say that \textbf{(9a) entails (9b) and (9c)}.
+
+Let's construct the s-family for (9a).
+\begin{center}
+\begin{tabular}{r|l}
+    $S$ & The woman who was arrested murdered Arturo. \\
+    $\sim S$ & The woman who was arrested didn't murdered Arturo \\
+    $S?$ & Did the woman, who was arrested, murdered Arturo? \\
+    $if-S$ & If the woman, who was arrested, murder Arturo, \\
+    & then how did she escaped prison in the first place? \\
+    $maybe-S$ & Perhaps the woman, who was arrested, murdered Arturo.\\
+\end{tabular}
+\end{center}
+In contrast with (8), here we are not sure of the fact that Arturo being murder. However, one thing stay the same is that the woman was arrested. Thus we can see that \textbf{(9a) presupposes (9b) but not (9c)}. 
+
+From here we could also draw a general observation that the information contained in the relative clause remains and could serve as a trigger for presupposition.
+
+\subsection*{(10)} The utterance of (10a) tells us two pieces of information: John's baldness and his children's baldness. Let's try non-denialability test on the (10b) and (10c). 
+
+\# John is bald, and John's children are bald too. But he doesn't have any children.
+
+\# John is bald, and John's children are bald too. But it's not true that a member of his family his bald.
+
+Both sentences show contradictions, thus we can say that \textbf{(10a) entails (10b) and (10c)}.
+
+Let's construct the s-family for (10a).
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & John is bald, and John's children are bald too.       \\
+    $\sim S$    & It's not true that John is bald, and his children are also bald.    \\
+    $S?$        & Was it true that John is bald and his children are also bald?     \\
+    $if-S$      & If it's true that John is bald and his children are also bald,      \\
+                & then it's probably genetic.     \\
+    $maybe-S$   & Maybe John is bald and his children are also bald.\\
+\end{tabular}
+\end{center}
+Here, we are not to sure on the fact that John or his children are bald but we can tell that he has children. Thus we can say that \textbf{(10a) presuppose (10b) but not (10c)}.
+
+\subsection*{(11)} Similar to (9) and (8), we now switches some elements of the utterance around. We can tell the sentences still entail each other since we can reuse our non-deniability test. 
+
+\# John has children, and John’s children are bald. But he doesn't have any children.
+
+\# John has children, and John’s children are bald. But it's not true that a member of his family his bald.
+
+Therefore \textbf{(11a) entails (11b) and (11c)}.
+
+Before we move on to constructing the s-family, we should note that in (11), we don't know whether John is bald. 
+\begin{center}
+\begin{tabular}{r|l}
+    $S$         & John has children, and John's children are bald.       \\
+    $\sim S$    & It's not true that John has children, and his children are bald.    \\
+    $S?$        & Was it true that John has children and his children are bald?     \\
+    $if-S$      & If it's true that John has children and his children are bald,      \\
+                & then it's still probably genetic.     \\
+    $maybe-S$   & Maybe John has children and his children are bald.\\
+\end{tabular}
+\end{center}
+It's interesting here. Like other sentences, we see that one of the fact of the sentence become ambiguous: Whether John has children. However, in this case, $\sim S$ in the s-family is semantically unsound: If John doesn't have children then who are bald?
+
+I think in this case, if the utterance doesn't presuppose (11b) \textit{John has children} then it could not presuppose (11c) \textit{John's children are bald}. I think this is because (11c) depends on (11b) as (11c) entails (11b). Upon hearing \textit{John's children ...} the speaker will automatically understand (11b) \textit{John has children}. 
+
+Therefore, I think \textbf{(11a) does not presuppose (11b) or (11c)}.
+
+\end{document}

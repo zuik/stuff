@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+
+\title{CS131 B1: HW 4}
+\author{Duy Nguyen}
+\date{10 October 2016}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\subsection*{a.$\forall x \forall y P(x,y)$}
+When $ x \neq y $ the statement is \textbf{false}.
+\subsection*{b.$\forall x \exists y P(x,y)$}
+When $ x = 0 $ there is no $y$ where $ \frac{0}{y} = 1$. \textbf{False}.
+\subsection*{c.$\exists x \forall y P(x,y)$}
+There is not an $x$ where it could satisfy the condition. Alternatively, $y=0$ would blow up the statement for every $x$. \textbf{False}.
+\subsection*{d.$\exists x \exists y P(x,y)$}
+When $x = y$, and $y \neq 0$, the statement is true\textbf{true}.
+
+\section*{Question 2}
+\subsection*{a. $\exists x \forall y (x+y=y)$}
+There exists an $x$ such that for every $y$, $x + y = y$.
+
+This is \textbf{true} when $ x = 0$.
+
+\subsection*{b. $\forall x \forall y ((x \geq 0) \land (y < 0) \rightarrow (x - y > 0))$}
+
+For all $x$ greater or equal to zero, and $y$ which is a negative number, $x - y > 0$.
+
+Since $x > y$, the equation $x - y$ is greater than 0. \textbf{True}.
+
+\subsection*{c. $\forall x \forall y ((x \neq 0) \land (y \neq 0) \leftrightarrow (xy \neq 0))$}
+
+For all $x$ and $y$ beside zero, their product is not zero. 
+
+Since there is no zero being multiply, the result could not be zero. Thus the statement is \textbf{true}.
+
+\section*{Question 3}
+\subsection*{a. Any person who is a female and a parent, is a mother of someone.}
+
+\begin{tabular}{rl}
+    Define: & $x$ is a person \\
+            &    $y$ is another person \\
+            &    $F(x)$ is a female person \\
+            &    $P(x)$ is a parent \\
+            &    $M(x,y)$ said x is the mother of y
+\end{tabular}
+
+
+Then we have:
+
+$$\forall x \exists y (F(x) \land P(x) \rightarrow M(x,y))$$
+
+\subsection*{b. There are people who are friends with everyone, people who have some friends, and
+people who have no friends.}
+
+\begin{tabular}{rl}
+    Define: & $a, b, c, x$ are people \\
+            & $F(x, y)$ said that x is friend with y 
+\end{tabular}
+
+Then we have:
+$$ (\exists a \forall x F(x, y)) \land 
+(\exists b \exists x F(x, y) \land 
+(\exists c \forall x \neg F(x,y))$$
+
+\subsection*{c. For every real number $C>0$, there exists $\epsilon > 0$, such that $f(x) > C$ whenever $0 < x < \epsilon$.}
+
+\begin{tabular}{rl}
+    Define: & $C$ is a real number $> 0$ \\
+    & $\epsilon$ is a small real number $>0$\\
+    & $x$ is a real number \\
+    & $f(x)$ is a function on x
+\end{tabular}
+
+Then we have that:
+$$ \forall C \exists \epsilon (0 < x < \epsilon) \rightarrow (f(x) > C)$$ 
+
+\subsection*{d. Negation of the previous statement in logical form and in English.}
+$$ \forall C \exists \epsilon (0 < x < \epsilon) \rightarrow (f(x) > C)$$ 
+
+Negated:
+
+$$ \exists C \forall \epsilon \neg ((0 < x < \epsilon) \rightarrow (f(x) > C))$$ 
+$$ \exists C \forall \epsilon ((0 < x < \epsilon) \land \neg (f(x) > C))$$
+$$ \exists C \forall \epsilon ((0 < x < \epsilon) \land (f(x) \leq C))$$
+
+There exists $C$, a real number greater than $0$ where for all $\epsilon$: $x$ is between $0$ and $\epsilon$, and  $f(x)$ is less or equal to $C$
+\end{document}

@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\title{LX331: Assignment 3}
+\author{Duy Nguyen}
+\date{17 February 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+
+\maketitle
+
+\section{The syntax and semantics of Propositional Logic}
+\subsection*{A. B.}
+(1) $\sim s \& r$ : Stuart is not in the kitchen and Fred left.
+
+\begin{tabular}{cc|ccccc}
+r & s & $\sim s$ \& $\sim s \& r$ \\
+\hline 
+T & T & F & F \\
+T & F & T & T \\
+F & T & F & F \\
+F & F & T & F \\
+\end{tabular}
+
+(2) $\sim (p \lor q)$ : It is not true that Mary or Sue is at home.
+
+\begin{tabular}{cc|ccccc}
+p & q & $p \lor q$ \& $\sim (p \lor q)$ \\
+\hline 
+T & T & T & F \\
+T & F & T & F \\
+F & T & T & F \\
+F & F & F & T \\
+\end{tabular}
+
+(3) $\sim (p \& s) \rightarrow q$ : If it is not true that Marry is at home and Stuart is in the kitchen, then Sue is at home.
+
+\begin{tabular}{ccc|ccccc}
+p & q & s & $p \& s$ & $\sim (p \& s)$ & $\sim (p \& s) \rightarrow q$ \\
+\hline 
+T &T & T & T & F & T \\
+T &T & F & F & T & T\\
+T &F & T & T & F & T\\
+T &F & F & F & T & F\\
+F &T & T & F & T & T\\
+F &T & F & F & T & T\\
+F &F & T & F & T & F\\
+F &F & F & F & T & F\\
+\end{tabular}
+
+(4) $\sim q \& ((s \lor \sim r) \rightarrow \sim s)$ : Sue isn't at home and if Stuart is in the kitchen or Fred didn't left then Stuart is not in the kitchen. 
+
+\begin{tabular}{ccc|ccccc}
+p &r & s & $s \lor \sim r$ & $(s \lor \sim r) \rightarrow \sim s$ & $\sim q \& ((s \lor \sim r) \rightarrow \sim s)$ \\
+\hline 
+T &T & T & T & F & F \\
+T &T & F & F & T & F\\
+T &F & T & T & F & F\\
+T &F & F & T & T & F\\
+F &T & T & T & F & F\\
+F &T & F & F & T & T\\
+F &F & T & T & F & F\\
+F &F & F & T & T & T\\
+\end{tabular}
+
+\subsection*{C. D.}
+(5) Stuart is not in the kitchen and Fred didn’t leave. 
+
+$\sim s \& \sim r$
+
+We can rewrite this logic formula as $\sim (s \lor r)$ due to DeMorgan's law.
+
+\begin{tabular}{cc|c}
+s & r & $\sim s \& \sim r \equiv \sim (s \lor r)$ \\
+\hline 
+T & T & F  \\
+T & F & F \\
+F & T & F  \\
+F & F & T  \\
+\end{tabular}
+
+(6) If Sue is at home or Fred didn’t leave, then Stuart is not in the kitchen.
+
+$(q \lor \sim r) \rightarrow \sim s$
+
+\begin{tabular}{ccc|cc}
+p & r & s & $(q \lor \sim r)$ & $(q \lor \sim r) \rightarrow \sim s$ \\
+\hline 
+T & T & T & T & F  \\
+T & T & F & F & T \\
+T & F & T & T & F \\
+T & F & F & F & T \\
+F & T & T & F & T \\
+F & T & F & F & T \\
+F & F & T & F & F \\
+F & F & F & F & T \\
+\end{tabular}
+
+
+(7) It's not the case that Mary and Sue are both at home.
+
+$\sim (p \& q)$
+
+\begin{tabular}{cc|c}
+p & q & $\sim (p \& q)$ \\
+\hline 
+T & T & F  \\
+T & F & T \\
+F & T & T  \\
+F & F & T  \\
+\end{tabular}
+
+(8) Neither Mary nor Sue is at home.
+
+$\sim (p \lor q)$
+
+\begin{tabular}{cc|c}
+p & q & $\sim (p \lor q)$ \\
+\hline 
+T & T & F  \\
+T & F & F \\
+F & T & F  \\
+F & F & T  \\
+\end{tabular}
+
+\section{Representing semantic ambiguity in Propositional Logic}
+
+(9) I didn't talk to Fred and Barney
+
+We can interpret two understanding from (9).
+
+(a) I did not talk to Fred and Barney at the same time. 
+
+$\sim (p \& q)$
+
+(b) I did not talk to Fred, and I did not talked to Barney
+
+$\sim p \& \sim q$
+
+If we look into the truth table, we can see that the two interpretations of the English sentence is not equivalent. 
+
+\begin{tabular}{cc|cc}
+p & q & $\sim (p \& q)$ & $\sim p \& \sim q$\\
+\hline 
+T & T & F & F  \\
+T & F & T & F\\
+F & T & T & F\\
+F & F & T & T \\
+\end{tabular}
+
+\section{A new logical connective}
+
+I can't type the connective arrow so $->$ is a substitution. 
+
+\begin{tabular}{cc|cl}
+A & B & A $->$ B & Comment\\
+\hline 
+T & T & F & It's the last week so there can't be homework  \\
+T & F & T & It's not the last week so there have to be homework\\
+F & T & T & It's the last week, so it is true that there isn't homework\\
+F & F & F & It's not the last week, so if there is no homework it is false. \\
+\end{tabular}
+
+\section{Logical relations between sentences}
+
+\subsection*{A.}
+So we have that $p \rightarrow q \equiv \sim p \lor q \equiv \sim (p \& \sim q)$. So $p \rightarrow q$ and $\sim (p \& \sim q)$ should be equivalent. Let's check with the truth table.
+
+\begin{tabular}{cc|cc}
+p & q & $p \rightarrow q$ & $\sim (p \& \sim q)$ \\ \hline 
+T & T & T & T \\
+T & F & F & F \\
+F & T & T & T \\
+F & F & T & T \\
+\end{tabular}
+
+\subsection*{B.}
+Logical compatible means that there are rows in that both formulae is both true or both false.
+
+\begin{tabular}{cc|cc}
+r & s & $\sim r \& \sim s$ & $\sim (r \lor \sim s)$ \\ \hline 
+\textbf{T} & \textbf{T} & \textbf{F} & \textbf{F} \\
+\textbf{T} & \textbf{F} & \textbf{F} & \textbf{F} \\
+F & T & F & T \\
+F & F & T & F \\
+\end{tabular}
+
+As we can see, the first two row are show that these two formulae are compatible.
+
+\subsection*{C.}
+One formula entails the other when the truth of the first "forces" the truth of the second. The table for two formulae is as follow:
+
+\begin{tabular}{cc|cc}
+p & s & $ \sim (p \& s) $ & $ \sim (p \lor s) $ \\ \hline 
+T & T & F & F \\
+T & F & T & F \\
+F & T & T & F \\
+\textbf{F} & \textbf{F} & \textbf{T} & \textbf{T} \\
+\end{tabular}
+
+From the truth table, we can see that $ \sim (p \& s) $ does not entails $ \sim (p \lor s) $. However, the last line show us that $ \sim (p \lor s) $ entails $ \sim (p \& s) $.
+
+
+\end{document}

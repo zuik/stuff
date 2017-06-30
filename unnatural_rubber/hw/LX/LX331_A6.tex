@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[margin=1.5in]{geometry}
+
+\title{LX331: Assignment 6}
+\author{Duy Nguyen}
+\date{30 March 2017}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Nguyen \thepage}
+
+\begin{document}
+\maketitle
+\newcommand*{\msim}{\mathord{\sim}}
+\newcommand*{\mand}{\mathbin{\&}}
+
+\section{Models and the semantics of PredL}
+\subsection{Domain and assignment functions}
+We have: 
+\begin{center}
+    \begin{tabular}{c|c}
+        
+        a & Aragorn \\
+        b & Bilbo   \\
+        c & Celebrimbor \\
+    \end{tabular}
+    \begin{tabular}{c|c}
+    \textbf{x} & \textbf{Val(x)} \\ \hline
+        \textsc{love} & \verb|{<Aragorn, Bilbo>}| \\
+        \textsc{greek} &  \verb|{<Aragorn>}|  \\
+        \textsc{man} & \verb|{<Bilbo>}|\\
+        \textsc{between} & $\varnothing$ \\
+    \end{tabular}
+\end{center}
+
+\subsection{A wild tautology appears!}
+It is impossible to make (4) false. We observe the sentence $(\textsc{greek}(a) \mand \textsc{man}(a)) \rightarrow \textsc{man}(a)$, the only way to make a material implication false is to have the antecedent be true and have a false consequence. If we made our consequence (\textsc{man}) false, however, then we observe that our logic just contradict itself, as \textsc{man} appears both in the consequence and the antecedent. In another word, if we made the consequence false by setting \textsc{man}(a) to false then the antecedent will be false regardless of the truth value of \textsc{greek}(a). 
+
+Another way to look at this problem is the fact that formula in the form of $ (A \mand B) \rightarrow C $ can be translate into $ A \rightarrow B \rightarrow C $. Since $ \textsc{man}(a) \rightarrow \textsc{man}(a) $ is a tautology, it is not possible for us to construct a scenario where (4) would be false.
+
+(4) could be translate to English as: \textit{If a person is both a man and a Greek then that person is a man}.
+
+\subsection{Ain't a Greek man}
+We note that $\msim (\textsc{greek}(c) \lor \textsc{man}(c)) \equiv \msim \textsc{greek}(c) \mand \msim \textsc{man}(c)$. Since we have an \& operator, we need to make both side of \& true. Therefore, to make both (5) and (6) true, we have to make sure both $\msim \textsc{man}(c)$ and $\textsc{man}(c)$ true. Since logic doesn't allows non-binary gender, this is impossible.
+
+Let's look at a truth table. 
+\begin{center}
+\begin{tabular}{cc|cc}
+    $\textsc{greek}(c)$ & $\textsc{man}(c)$ & $\msim (\textsc{greek}(c) \lor \textsc{man}(c))$ & $\textsc{man}(c)$ \\ \hline 
+    T & T & F & T\\
+    T & F & F & F\\
+    F & T & F & T\\
+    F & F & T & F\\
+\end{tabular}
+\end{center}
+
+From the truth table, we can see that (5) and (6) are \textbf{logically incompatible}. They are not logical denial however, since on the second row, they are both false. 
+
+\section{Unexpressed arguments}
+\subsection{A sinking ship}
+Based on the sentences in (3) and (4), I would think that the verb \textbf{sunk}, used in the manner as it was used in (3) and (4) would only be a \textbf{two-place predicate}. The reason for this is because the construction \textit{was blah-ed} (the passive voice) implies to the listener that the action was not caused by the object itself, but there was a causer. Therefore, the listener understand that there has to be an agent that cause the action to happen to the object. This agent however, could be left unsaid, and listener's mind would fill in some vague notion about this agent. This unsaid agent's phantom appears in sentences (b-d) in (4). 
+
+In (3b) and (4b), we can't have \textit{but no one was responsible for its sinking} next to the original sentence. This is because we can't denied what the original sentence (3a) has confirmed, that its owner sunk the boat. This is similar to the fact that you can't be both a man and not a man (1.3). However, in (4b), even though there is no people exist in the sentence, the phrase \textit{but no one was responsible for its sinking} is still not semantically acceptable, thus means that there is a phantom person blocking this.
+
+
+In (3c) and (4c), the meaning of the word \textit{deliberately} require a causer. Furthermore, the causer of \textit{deliberately} has to possess some kind of intelligence, since it, the causer, has to be able to at least distinguish between accidental causation and not accidental causation. In general term, the one who \textit{deliberately} refers to has to be smart enough to cause it and know and want to cause an event. In (3c), this fact makes sense, as the agent is the owner. However, the lack of agent in (4c) doesn't make the sentence goes nonsensical. This means that there is someone that \textit{deliberately} refers to in (4c). 
+
+Lastly, in (3d) and (4d), we look at the phrase \textit{in order to collect the insurance}. In the similar argument we have had for (3c) and (4c), the fact that this phrase doesn't make the sentence (4d) goes bad means that there is an agent that this phrase refers to, Furthermore, this agent can't be the boat since it would not be able to "collect the insurance". The agent has to be an intelligent entity, who lives in a society where the concept of insurance exist for this entity's boat. 
+
+Therefore, sentences (b-d) show us that there is a phantom entity that is most likely a human that was left unsaid in (4) who is one of the parameter for the verb \textbf{sunk}. 
+
+\subsection{Self-sinking}
+Interestingly, changing just one or two words in a sentence can radically change its meaning. In (5), the construction is no longer passive. This means that the core meaning of the sentence no longer implies that there is a causer (left unsaid) in the sentence. 
+
+I would still argue however, that the verb \textbf{sunk}, even though not use in a passive construction, is a two-place predicate. In the sentences (5a-d), the causer of the action of the boat sinking however, are not a person but a "thing". Contrast this to (4) where the listener would be able to guess that the causer is a person, in (5) the listener would only be able to come to a conclusion that the boat was sunk because of \textbf{something} (happened). 
+
+(5c) and (5d) are nonsensical. This is because \textit{deliberately} and \textit{in order to collect the insurance} require an intelligent being to refer to. However, if we see that the causer place in the \textbf{sunk} predicate is a "thing" then the fact that (5c) and (5d) don't make sense makes sense. 
+
+In contrast to (4b), (5b) makes sense. This is because there is no person who is responsible for the fact that the boat is sinking. Therefore, \textbf{no one} is able to be used. However, note that this sentence doesn't seem to make sense: 
+
+\# The boat sunk (sank), but nothing was responsible for its sinking. 
+
+Even though to some people the sentence can have some sense (I know it does for me once I have read it enough time), the fact that an event happened without any causality seem intolerable.
+
+\section{Lexical semantics of predicates}
+\subsection{identical $\sim$ different}
+This pair of words are \textbf{scalar antonyms} of each other. These two words are mutually exclusive but not jointly exhaustive of their domain. The meaning of the two words are opposites of each other. Furthermore, we can come up with a word that fits in the middle of these two words, e.g. \textit{similar}. Two item could be not identical but also not different. They are \textit{similar} to each other. 
+
+\subsection{wide $\sim$ narrow}
+In contrast to (3.1), the meaning of these two words encompassed their domain. A thing can be wide or narrow. However, there is no middle ground between wide or narrow. Therefore, these two are \textbf{complementary antonyms}.
+
+\subsection{murder $\sim$ kill}
+We observe that \textit{kill} is a vague notion, while \textit{murder} is a more definite description. An act of killing encompassed willful killing and involuntary killing. E.g. you can \textit{accidentally kill} someone by mistaken a vial of almond fragrance with a vial of cyanide. However, when you say \textit{murder}, there is a sense of intentional killing implied. Furthermore, you can kill plants, but you can't murder plants. Thus \textit{murder} is a \textbf{hyponym} of \textit{kill}.
+
+\subsection{near $\sim$ far}
+Similar to (3.2), the relationship between \textit{near} and \textit{far} is mutually exclusive and jointly exhaustive. We can't come up with a word that can sit in the middle of \textit{near} and \textit{far} (average distance?). Therefore, we will say that \textit{near} and \textit{far} are \textbf{complementary antonyms} of each other.
+
+\subsection{ancestor $\sim$ descendant}
+Like husband and wife, the relationship between \textit{ancestor} and \textit{descendant} are of a two opposite relationship. They could be called \textbf{relational antonyms}. In details, a statement of \textit{Andrew is the ancestor of Barney} automatically implies that \textit{Barney is the descendant of Andrew}. We see that $\verb|<a, b>| \in Val(\textsc{ancestor}) \leftrightarrow \verb|<b, a>| \in Val(\textsc{descendant})$. 
+
+\end{document}

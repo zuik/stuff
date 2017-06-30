@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+%\usepackage{mathptmx}%Times
+\title{CS131 B1: HW 2}
+\author{Duy Nguyen}
+\date{24 September 2016}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+
+\subsection*{a. Pluto is called a planet if and only if Kuiper Belt objects are called planets.}
+
+Pluto is called a planet \textbf{P}
+
+Kuiper Belt objects are called planet \textbf{K}
+
+$P \leftrightarrow K$
+
+P is false, K is false so $P \leftrightarrow K$ is true.
+
+\subsection*{b. If C++ is object-oriented language, then Java is also an object-oriented language.}
+
+C++ is object-oriented language \textbf{C}
+
+Java is an object-oriented language \textbf{J}
+
+$C \rightarrow J$
+
+C is true and J is true so $C \rightarrow J$ is true.
+
+\subsection*{c. If C++ uses pointers, then Java also uses pointers.}
+
+C++ uses pointers \textbf{C}
+
+Java uses pointers \textbf{J}
+
+$C \rightarrow J$
+
+C is true and J is false so $C \rightarrow J$ is false.
+
+\subsection*{d. Rain or shine, I am studying CS131.}
+
+Rain \textbf{R} 
+
+Shine \textbf{S} 
+
+I am studying CS131 \textbf{I}
+
+$(R \lor S) \rightarrow I$
+
+Since it could either raining or shine right now, $R \lor S$ is always true. I is true. Thus $(R \lor S) \rightarrow I$ is true. 
+
+\subsection*{e. For every $x$: if $x^4>10,000$, then $x>10$.}
+
+$x^4>10,000$ \textbf{A}
+
+$x>10$ \textbf{B}
+
+$A \rightarrow B$
+
+When A is true, B could be false (for $\sqrt[4]{10,000} = \pm 10$, $x <= -10$). Thus $A \rightarrow B$ is false.
+
+\subsection*{f. For every $x$: $x>10$ implies $x^4 > 10,000$.}
+
+$x>10$ \textbf{C}
+
+$x^4>10,000$ \textbf{D}
+
+$C \rightarrow D$
+
+When C is true, D is also true. Thus $C \rightarrow D$ is true.
+
+\subsection*{g. $log x>0$ iff $x>1$.}
+
+$log x>0$ \textbf{L}
+
+$x>1$ \textbf{M}
+
+$L \leftrightarrow M$
+
+When M is true, L is true. When M is false, L is false. There is no way only either M or L is true/false. Thus $L \leftrightarrow M$ is true.
+
+\section*{Question 2}
+\subsection*{a. The fact A implies the fact B.}
+$A \rightarrow B$
+\subsection*{b. The conclusion C follows from the three premises: P, Q, and R.}
+$(P \land Q \land R) \rightarrow C$
+\subsection*{c. A is sufficient for B.}
+$A \rightarrow B$
+\subsection*{d. A is necessary for B.}
+$B \rightarrow A$
+\subsection*{e. A is necessary and sufficient for B.}
+$(B \rightarrow A) \land (A \rightarrow B) \equiv A \leftrightarrow B$
+\subsection*{f. If I study hard I get good grades.}
+I study hard \textbf{S}
+
+I get good grades \textbf{G}
+
+$S \rightarrow G$
+
+\subsection*{g. I get good grades only if I study hard.}
+I get good grade \textbf{G}
+
+I study hard \textbf{S}
+
+$G \rightarrow S$.
+
+\subsection*{h. I get good grades if and only if I study hard.}
+I get good grade \textbf{G}
+
+I study hard \textbf{S}
+
+$G \leftrightarrow S$.
+
+\section*{Question 3}
+\subsection*{2a. The fact A implies the fact B.}
+\begin{tabular}{r|l}
+    Statement & $A \rightarrow B$ \\
+    Contrapositive & $\neg B \rightarrow \neg A$ \\
+    & Not B implies not A \\
+    Negation & $A \land \neg B$ \\
+    & A and not B
+\end{tabular}
+\subsection*{2f. If I study hard I get good grades.}
+I study hard \textbf{S}
+
+I get good grades \textbf{G}
+
+\begin{tabular}{r|l}
+    Statement & $S \rightarrow G$ \\
+    Contrapositive & $\neg G \rightarrow \neg S$ \\
+    & If I don't get good grade, then I didn't study hard. \\
+    Negation & $S \land \neg G$ \\
+    & I study hard and (still) I don't get good grade
+\end{tabular}
+\section*{Question 4}
+\subsection*{a.}
+\begin{tabular}{l|l}
+    If Pedro Martinez pitches, the Red Sox win. & $P \rightarrow R$\\
+    The Red Sox do not win. & $\neg R$\\ \hline
+    Pedro Martinez does not pitch. & $\neg P$
+\end{tabular}
+
+This argument is valid as it fit the known valid form of \textit{modus tollens}. 
+
+\subsection*{b.}
+\begin{tabular}{l|l}
+    If you got a good grade for the course,& \\
+    then you did well on the final exam. & $G \rightarrow F$\\
+    You did well on the final exam. & $F$\\ \hline
+    You got a good grade for the course. & $G$
+\end{tabular}
+
+This argument is valid as it fit the known valid form of \textit{modus ponens}. 
+
+\subsection*{c.}
+\begin{tabular}{l|l}
+    If there is a snow storm, there is no electricity in my house. & $S \rightarrow \neg E$ \\
+    The snow is not falling. & $\neg S$ \\ \hline
+    My house has electricity. & $E$
+\end{tabular}
+
+This argument is invalid as it is the invalid form knows as \textit{fallacy of the inverse}.
+
+\subsection*{d.}
+\begin{tabular}{l|l}
+    My friend wants to major in CS or biology or chemistry.& $S \lor B \lor C$\\
+    She decided that biology and chemistry are not for her. & $\neg B \land \neg C$\\ \hline
+    My friend wants to major in CS. & $S$
+\end{tabular}
+
+We notice that if we reverse De Morgan's law on the second premise, we have $\neg B \land \neg C \equiv \neg (B \lor C)$. We also notice that we apply associative law and commutative law to have $S \lor B \lor C \equiv (B \lor C) \lor S$.
+
+We have the following argument:
+
+\begin{tabular}{l}
+    $(B \lor C) \lor S$\\
+    $\neg (B \lor C)$\\ \hline
+    $S$
+\end{tabular}
+
+This argument is true due to \textit{disjunctive syllogism}.
+
+\subsection*{e.}
+\begin{tabular}{l|l}
+    If parents go to town, then nanny supervises kids. & $P \rightarrow N$ \\
+    If nanny does not supervise kids, then nanny will cook. & $\neg N \rightarrow C$ \\
+    Nanny cooked today. & $C$\\ \hline
+    Therefore, parents did not go to town today.&$\neg P$.
+\end{tabular}
+
+We have the following truth table:
+
+\begin{tabular}{ccc|ccc|c}
+	$P$&$N$&$C$&$P \rightarrow N$&$\neg N \rightarrow C$&$C$&$\neg P$ \\ \hline
+	\textbf{T}&\textbf{T}&\textbf{T}&\textbf{T}&\textbf{T}&\textbf{T}&\textbf{F}\\
+	F&F&F&T&F&F& \\
+	T&F&F&F&F&F& \\
+	F&T&F&T&T&F& \\
+	F&F&T&T&T&T& \\
+	T&T&F&T&T&F& \\
+	T&F&T&F&T&T& \\
+	F&T&T&T&T&T& 
+\end{tabular}
+
+The first line has true premises but false conclusion. Thus the argument is invalid.
+
+\subsection*{f.}
+\begin{tabular}{l|l}
+    If I tell you the time, then we'll start chatting & $T \rightarrow C$  \\
+    If we start chatting, & \\
+    then I'll have to invite you to my house. & $C \rightarrow H$ \\
+    If I invite you to my house, & \\
+    then you'll meet my daughter & \\
+    and you both will fall in love. & $H \rightarrow (D \land L)$ \\
+    If you both fall in love, you'll marry my daughter.&$L \rightarrow M$\\ \hline
+    Since I don't want a poor son-in-law without a watch, & \\
+    I won't tell you the time. & $\neg M \rightarrow \neg T$
+\end{tabular}
+
+First we note that "not having a poor son-in-law without a watch" means that he did not marry the daughter ($\neg M$). Now we need to check if $(H \rightarrow (D \land L)) \land (L \rightarrow M) \equiv H \rightarrow M$. For this, we check if $H \rightarrow (D \land L) \equiv H \rightarrow L$. This only happen if D is always true. 
+
+If D is true, then using transitivity, we can conclude $T \rightarrow M$. Contrapositive of this argument is $\neg M \rightarrow \neg T$. Therefore, the statement is valid (if D is true). Meeting a person doesn't mean that you will fell in love right?
+
+
+\end{document}
